@@ -1,17 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 .button{
+    background-color: var(--light-yellow);
+    font-weight: bold;
+    font-family: 'Saira', sans-serif;
     font-size: 2rem;
-    background-color: var(--yellow);
-    padding: 2rem 1rem;
+    width: 100%;
+    padding: 1.2rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    border: 0px;
+    border-radius: 6px;
+    transition: 0.6s;
 }
 
 .button:hover{
-    background-color: var(--lightYellow);
+    background-color: var(--yellow);
     font-style: italic;
 }
 
-.button-outline{
-    outline: 0.1rem black;
-    outline-style: solid;
+.buttonOutline{
+    border: solid black 0.01rem;
+    border-radius: 6px;
+    font-weight: 400;
 }
