@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+.button{
+    font-size: 2rem;
+    background-color: var(--yellow);
+    padding: 2rem 1rem;
+}
+
+.button:hover{
+    background-color: var(--lightYellow);
+    font-style: italic;
+}
+
+.button-outline{
+    outline: 0.1rem black;
+}
