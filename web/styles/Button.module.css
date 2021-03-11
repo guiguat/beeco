@@ -4,7 +4,7 @@
     background-color: var(--light-yellow);
     font-weight: bold;
     font-family: 'Saira', sans-serif;
-    font-size: 2rem;
+    font-size: var(--title-font-size);
     width: 100%;
     padding: 1.2rem 2rem;
     display: flex;
@@ -22,7 +22,7 @@
 }
 
 .buttonOutline{
-    border: solid black 0.01rem;
+    border: solid black 0.1rem;
     border-radius: 6px;
     font-weight: 400;
 }
