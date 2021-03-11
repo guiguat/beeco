@@ -13,4 +13,5 @@
 
 .button-outline{
     outline: 0.1rem black;
+    outline-style: solid;
 }
