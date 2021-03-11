@@ -2,12 +2,13 @@
     background-color: var(--grey);
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     color: var(--white);
     padding: 3.2rem 2.4rem;
-    min-width: 25.4rem;
-    min-height: 21rem;
+    max-width: 25.4rem;
+    height: 100%;
+    text-align: center;
+    border-radius: 2rem;
 }
 
 .number{
@@ -16,9 +17,9 @@
 }
 
 .subtitle{
+    margin-top: 1.4rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center; 
 }
 
@@ -27,6 +28,7 @@
 }
 
 .text{
+    margin-top: 1rem;
     font: var(--subheader-light-font);
     text-align: center;
 }

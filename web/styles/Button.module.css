@@ -1,8 +1,7 @@
 .button{
     background-color: var(--light-yellow);
-    font-weight: bold;
-    font-family: 'Saira', sans-serif;
-    font-size: var(--title-font-size);
+    font: var(--title-heavy-font);
+    max-width: 16.6rem;
     width: 100%;
     padding: 1.2rem 2rem;
     display: flex;
@@ -10,16 +9,15 @@
     justify-content: center;
     outline: none;
     border: 0px;
-    border-radius: 6px;
-    transition: 0.6s;
+    border-radius: 0.6rem;
+    transition: 100ms;
 }
 
 .button:hover{
     background-color: var(--black);
+    color: var(--white);
 }
 
 .buttonOutline{
-    border: solid black 0.1rem;
-    border-radius: 6px;
-    font-weight: 400;
+    border: solid var(--black) 0.1rem;
 }
