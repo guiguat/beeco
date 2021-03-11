@@ -1,38 +1,32 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo&family=Saira:wght@400;700&display=swap');
-
 .metrixCard{
     background-color: var(--grey);
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    color: #fafafa;
-    padding: 1.2rem 2rem;
-    width: 100%;
-    height: 100%;
+    color: var(--white);
+    padding: 3.2rem 2.4rem;
+    min-width: 25.4rem;
+    min-height: 21rem;
 }
 
 .number{
+    font: var(--display-heavy-font);
     font-size: 6.4rem;
-    font-family: 'Saira', sans-serif;
 }
 
 .subtitle{
-    margin-top: -6rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: center; 
 }
 
 .sizeUnit{
-    font-size: var(--headline-font-size);
-    font-family: inherit;
+    font: var(--headline-light-font);
 }
 
 .text{
-    margin-top: -1rem;
-    font-size: var(--subheader-font-size);
-    font-family: 'Archivo', sans-serif;
-    max-width: 40rem;
+    font: var(--subheader-light-font);
+    text-align: center;
 }

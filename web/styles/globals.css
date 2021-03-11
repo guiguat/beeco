@@ -1,24 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=Saira:wght@400;600;700&display=swap');
+
 :root {
   --font-size: 62.5%;
-  --display-font-size: 3.6rem;
-  --headline-font-size: 2.4rem;
-  --title-font-size: 2rem;
-  --subheader-font-size: 1.6rem;
-  --body-font-size: 1.4rem;
-  --small-font-size: 1rem;
-  --background-color: #fafafa;
+  --display-heavy-font: normal normal bold 3.6rem/0 'Saira';
+  --headline-light-font: normal normal 400 2.4rem/0 'Saira';
+  --title-heavy-font: normal normal bold 2rem/0 'Saira';
+  --subheader-light-font: normal normal 400 1.6rem/0 'Archivo';
+  --subheader-heavy-font: normal normal 600 1.6rem/0 'Archivo';
+  --body-light-font: normal normal 400 1.4rem/0 'Archivo';
+  --white: #fafafa;
   --yellow: #FFE000;
   --light-yellow: #FFE235;
   --black: #221D1D;
   --light-blue: #06ABEC;
   --blue: #337AB7;
-  --grey: #6C6C6C;
+  --light-grey: #6C6C6C;
+  --grey: #3c3c3c;
+  --dark-grey: #1e2021;
 }
 
 html,
 body {
   font-size: var(--font-size);
-  background-color: var(--background-color);
+  background-color: var(--white);
   height: 100vh;
   padding: 0;
   margin: 0;
