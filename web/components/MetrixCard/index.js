@@ -1,6 +1,6 @@
 import styles from '../../styles/MetrixCard.module.css'
 
-export default function({number, sizeUnit, text}){
+export default function MetrixCard({number, sizeUnit, text}){
     return(
         <div className = {styles.metrixCard}>
             <h1 className = {styles.number}>{number}</h1>
