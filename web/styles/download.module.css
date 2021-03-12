@@ -1,0 +1,67 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 6rem 1.6rem;
+    height: 100%;
+}
+.header >p{
+    font: var(--subheader-light-font);
+    max-width: 48.8rem;
+    width: 100%;
+    text-align: center;
+    color: var(--light-grey);
+    margin-top: 2.4rem;
+    margin-bottom: 3.2rem;
+}
+.header img{
+    max-height: 8.2rem;
+    height: 100%;
+}
+
+.downloadsection{
+    background-color: var( --light-yellow);
+    display: flex; 
+    height: 100%;
+    padding: 3.6rem 1.6rem;
+    align-items: center;
+    justify-content: space-between;
+}
+.download{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-left: auto;
+    margin-right: auto;
+
+}
+.title{
+    font: var(--title-heavy-font);
+    color: var(--black);
+}
+.description{
+    font: var(--body-light-font);
+    color: var(--black);
+    margin-top: .6rem;
+    margin-bottom: 3.2rem;
+    max-width: 26.4rem;
+    text-align: center;
+}
+
+@media(max-width: 800px){
+    .downloadsection{
+        flex-direction: column;
+    }
+    .download + .download{
+        margin-top: 4rem;
+    }
+}
