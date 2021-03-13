@@ -7,7 +7,7 @@
 .hero{
     display: flex;
     justify-content: start;
-    align-items: center;
+    align-items: flex-start;
     margin-top: 3.4rem; 
 }
 
