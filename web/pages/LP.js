@@ -15,7 +15,9 @@ export default function LP(){
                     <p className={styles.heroText}>
                         Bee.co é a plataforma para os trabalhadores do futuro, entre na nossa colmeia e solucione os problemas mais abelhudos de milhões de usuarios. Se você precisa de uma abelha para te ajudar baixe agora e cadastre sua oferta de trabalho.
                     </p>
-                    <Button isOutline={false} text="Baixe agora"></Button>
+                    <Button isOutline={false} text="Baixe agora" onClick={ () => {
+                        alert("VSFD GAMBURA");
+                    }}></Button>
                 </div>
                 <img src="/images/lpHeroImg.svg" alt="Big bee" className={styles.heroImg}></img>
             </div>
