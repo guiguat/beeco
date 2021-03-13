@@ -27,18 +27,15 @@ export default function LP(){
             <div className={styles.metrixSection}>
                 <MetrixCard data={{number: "150", 
                                 sizeUnit: "Milhões", 
-                                text: "Problemas solucionados por nossas abelhas"}}
-                                className={styles.metrixCard}>
+                                text: "Problemas solucionados por nossas abelhas"}}>
                 </MetrixCard>
                 <MetrixCard data={{number: "140", 
                                 sizeUnit: "Mil", 
-                                text: "De abelhas enriquecendo a cada dia"}}
-                                className={styles.metrixCard}>
+                                text: "De abelhas enriquecendo a cada dia"}}>
                 </MetrixCard>
                 <MetrixCard data={{number: "300", 
                                 sizeUnit: "Reais", 
-                                text: "Em movimento a cada minuto em nossa colmeia"}}
-                                className={styles.metrixCard}>
+                                text: "Em movimento a cada minuto em nossa colmeia"}}>
                 </MetrixCard>
             </div>
         </>
