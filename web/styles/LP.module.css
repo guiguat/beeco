@@ -1,5 +1,7 @@
-.container{
+.headerAndHero{
     padding: 6.4rem 13.3rem;
+    padding-bottom: 0;
+    margin-bottom: 11.1rem;
 }
 
 .hero{
@@ -20,4 +22,13 @@
     max-width: 44.8rem;
     margin-right: 20rem;
     margin-bottom: 1.6rem;
+}
+
+.metrixSection{
+    background-color: var(--dark-grey);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height:100%
 }
