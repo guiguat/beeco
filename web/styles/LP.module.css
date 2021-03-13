@@ -1,0 +1,22 @@
+.container{
+    padding: 6.4rem 13.3rem;
+}
+
+.hero{
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+}
+
+.heroTitle{
+    font: var(--display-heavy-font);
+}
+
+.heroText{
+    font: var(--subheader-light-font);
+    color: var(--light-grey);
+    margin-top: 1.6rem;
+    max-width: 44.8rem;
+    margin-right: 20rem;
+    margin-bottom: 1.6rem;
+}
