@@ -10,7 +10,7 @@
     outline: none;
     border: 0px;
     border-radius: 0.6rem;
-    transition: 100ms;
+    transition: 300ms;
 }
 
 .button:hover{
