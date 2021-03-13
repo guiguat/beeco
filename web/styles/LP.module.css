@@ -1,14 +1,28 @@
 .headerAndHero{
-    padding: 6.4rem 13.3rem;
+    padding: 6.4rem 1.6rem;
     padding-bottom: 0;
-    margin-bottom: 11.1rem;
+    margin-bottom: 6.4rem;
+    height: 100%;
+    max-width: 88rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.headerAndHero > header{
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
 }
 
 .hero{
     display: flex;
-    justify-content: start;
+    justify-content: space-between;
     align-items: flex-start;
     margin-top: 3.4rem; 
+    width: 100%;
 }
 
 .heroTitle{
@@ -20,15 +34,51 @@
     color: var(--light-grey);
     margin-top: 1.6rem;
     max-width: 44.8rem;
-    margin-right: 16.4rem;
     margin-bottom: 1.6rem;
 }
 
 .metrixSection{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: var(--dark-grey);
+    height: 100%;
+    width: 100%;
+    padding-bottom: 6.4rem;
+}
+
+.metrixSection > div{
+    margin-top: -4.3rem;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    height: 23.4rem;
+}
+
+.metrixCardLP + .metrixCardLP{
+    margin-left: 3.2rem;
+} 
+
+@media(max-width: 800px){
+    .headerAndHero{
+        padding: 3.2rem 1.6rem;
+        margin-bottom: 0rem;
+    }
+    .heroImg{
+        display: none;
+    }
+
+    .metrixSection{
+        padding-top: 6.4rem;
+    }
+
+    .metrixSection > div{
+        flex-direction: column;
+        margin-top: 0;
+    }
+
+    .metrixCardLP + .metrixCardLP{
+        margin-top: 3.6rem;
+        margin-left: 0rem;
+    } 
 }

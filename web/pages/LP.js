@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export default function LP(){
     return (
-        <>
+        <div className="container">
             <div className={styles.headerAndHero}>
                 <header>
                     <img src="/images/lpLogo.svg" alt="beeco"/>
@@ -26,19 +26,24 @@ export default function LP(){
                 </div>
             </div>
             <div className={styles.metrixSection}>
-                <MetrixCard data={{number: "150", 
-                                sizeUnit: "Milhões", 
-                                text: "Problemas solucionados por nossas abelhas"}}>
-                </MetrixCard>
-                <MetrixCard data={{number: "140", 
-                                sizeUnit: "Mil", 
-                                text: "De abelhas enriquecendo a cada dia"}}>
-                </MetrixCard>
-                <MetrixCard data={{number: "300", 
-                                sizeUnit: "Reais", 
-                                text: "Em movimento a cada minuto em nossa colmeia"}}>
-                </MetrixCard>
+                <div>
+                    <MetrixCard data={{number: "150", 
+                                    sizeUnit: "Milhões", 
+                                    text: "Problemas solucionados por nossas abelhas"}}
+                                    extraClass ={styles.metrixCardLP}>
+                    </MetrixCard>
+                    <MetrixCard data={{number: "140", 
+                                    sizeUnit: "Mil", 
+                                    text: "De abelhas enriquecendo a cada dia"}}
+                                    extraClass = {styles.metrixCardLP}>
+                    </MetrixCard>
+                    <MetrixCard data={{number: "300", 
+                                    sizeUnit: "Reais", 
+                                    text: "Em movimento a cada minuto em nossa colmeia"}}
+                                    extraClass = {styles.metrixCardLP}>
+                    </MetrixCard>
+                </div>
             </div>
-        </>
+        </div>
     );
 }

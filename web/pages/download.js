@@ -4,7 +4,7 @@ import Router from 'next/router'
 
 export default function Download(){
     return(
-        <div className={styles.container}>
+        <div className="container">
             <div className={styles.header}>
                 <img src="/images/logoDownload.svg" alt="beeco"/>
                 <p>Bee.co é a plataforma para os trabalhadores do futuro, entre na nossa colmeia e solucione os problemas mais abelhudos de milhões de usuarios. Se você precisa de uma abelha para te ajudar baixe agora e cadastre sua oferta de trabalho.</p>
