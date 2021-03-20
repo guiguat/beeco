@@ -1,8 +1,8 @@
 import styles from '../../styles/MetrixCard.module.css'
 
-export default function MetrixCard({data}){
+export default function MetrixCard({data, extraClass}){
     return(
-        <div className = {styles.metrixCard}>
+        <div className = {`${styles.metrixCard} ${extraClass}`}>
             <h1 className = {styles.number}>{data.number}</h1>
             <div className={styles.subtitle}>
                 <p className = {styles.sizeUnit}>{data.sizeUnit}</p>
