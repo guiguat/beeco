@@ -1,9 +1,9 @@
 {
-  "name": "mobile",
-  "displayName": "mobile",
+  "name": "beeco",
+  "displayName": "beeco",
   "expo": {
-    "name": "mobile",
-    "slug": "mobile",
+    "name": "beeco",
+    "slug": "beeco",
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"

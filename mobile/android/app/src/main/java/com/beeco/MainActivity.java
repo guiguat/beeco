@@ -1,4 +1,4 @@
-package com.mobile;
+package com.beeco;
 
 import android.os.Bundle;
 
