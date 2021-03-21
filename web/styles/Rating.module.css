@@ -1,0 +1,38 @@
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+    width: 100%
+}
+.logo img{
+    padding-bottom: 3.2rem;
+    padding-top: 3.7rem;
+}
+.main >img{
+    border-radius: 50%;
+    width: 19.7rem;
+    height: 19.7rem;
+    margin-bottom: 3.6rem;
+}
+
+.main >p{
+    font: var(--title-light-font);
+    color: var(--light-grey);
+    max-width: 24.4rem;
+    text-align: center;
+    padding-bottom: 3.6rem;
+}
+
+.main .stars{
+    padding-bottom: 3.6rem;
+}
+
+.main .stars .star + .star{
+    margin-left:  1.6rem;
+}
+
+.main .stars img:hover{
+    cursor: pointer;
+}
