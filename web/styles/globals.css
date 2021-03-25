@@ -16,8 +16,10 @@
   --light-blue: #06ABEC;
   --blue: #337AB7;
   --light-grey: #6C6C6C;
+  --lighter-grey: #B7B7B7;
   --grey: #3c3c3c;
   --dark-grey: #1e2021;
+  --success-green: #3CC13B;
 }
 
 * {

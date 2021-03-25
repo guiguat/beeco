@@ -1,0 +1,17 @@
+.starInput{
+    display: none;
+}
+
+.label+ .label{
+    margin-left: 1.6rem;
+    
+}
+.label{
+    cursor: pointer;
+}
+
+.star{
+    
+    transition: color 0.2s;
+    
+}

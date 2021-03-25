@@ -1,4 +1,4 @@
-import styles from '../styles/download.module.css'
+import styles from '../styles/Download.module.css'
 import Button from '../components/Button'
 import Router from 'next/router'
 
