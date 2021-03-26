@@ -20,7 +20,7 @@
   --grey: #3c3c3c;
   --dark-grey: #1e2021;
   --success-green: #3CC13B;
-  --yellow-elevation: 0rem 1.5rem 7.0rem -1.5rem rgba(255, 224, 0, 0.59);
+  --yellow-elevation: 0rem 1.5rem 7.0rem -1rem rgba(255, 224, 0, 0.59);
 }
 
 * {
