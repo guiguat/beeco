@@ -1,0 +1,168 @@
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    max-width: 60rem;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    
+}
+
+.wrapper .topHive{
+    top: 0;
+    position: absolute;
+    left: 0;
+}
+
+.wrapper .bottomHive{
+    bottom: -3.2rem;
+    right: 0;
+    
+    position: absolute;
+    transform: scaleX(-1) rotate(-20deg);
+}
+.wrapper .logo img{
+    margin-bottom: 8.4rem;
+    margin-top: 3.7rem;
+    width: 9.8rem;
+    
+}
+
+.wrapper .content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    left: 0;
+    right: 0;
+    top: 24.2rem;
+}
+
+.wrapper .content .freelancer{
+    position: relative;
+    margin-bottom: 3.6rem;
+}
+
+.wrapper .content .freelancer .photo{
+    border-radius: 50%;
+    width: 25rem;
+    height: 25rem;
+}
+
+.wrapper .content .freelancerGreen{
+    border-radius: 50%;
+    margin-bottom: 3.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: color 0.5s;
+    animation-fill-mode: forwards;
+
+    
+}
+
+.wrapper .content .freelancerGreen .photo{
+    border-radius: 50%;
+    width: 25rem;
+    height: 25rem;
+    animation: opacity 0.5s;
+    animation-fill-mode: forwards;
+    
+}
+
+.wrapper .content .freelancerGreen .checked{
+    position: absolute; 
+    animation: show 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.wrapper .content .stars{
+    margin-bottom: 3.6rem;
+    
+}
+
+.wrapper .content >p{
+    font: var(--title-light-font);
+    color: var(--light-grey);
+    max-width: 24.4rem;
+    text-align: center;
+    margin-bottom: 3.6rem;
+}
+
+.wrapper .content .thanks{
+    font: var(--title-light-font);
+    color: var(--success-green);
+    max-width: 27.4rem;
+    text-align: center;
+    margin-bottom: 3.6rem;
+    animation: show 2s;
+    animation-fill-mode: forwards;
+    
+}
+
+@keyframes color {
+    from {
+      background-color: none;
+    }
+  
+    to {
+      background-color: var(--success-green);
+    }
+  }
+
+  @keyframes opacity{
+    from {
+        opacity: 1;
+      }
+    
+      to {
+        opacity: 0.7;
+      }
+  }
+
+  @keyframes show {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+        opacity: 1;
+    }
+  }
+
+@media(max-width: 600px){
+    .wrapper .content .freelancer{
+        margin-bottom: 1.6rem;
+    }
+    .wrapper .content .freelancer .photo{
+        width: 20rem;
+        height: 20rem;
+    }
+
+    .wrapper .content .freelancerGreen .photo{
+        width: 20rem;
+        height: 20rem;
+    }
+
+    .wrapper .content >p{
+        margin-bottom: 1.6rem;
+    }
+
+    .wrapper .content .stars{
+        margin-bottom: 1.6rem;
+    }
+
+
+    .wrapper .topHive{
+        top: .2rem;
+        left: -6.4rem;
+    }
+    
+    .wrapper .bottomHive{
+        right: -2.4rem;
+        
+    }
+}

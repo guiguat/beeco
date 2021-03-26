@@ -5,6 +5,7 @@
   --display-heavy-font: normal normal bold 3.6rem/4.8rem 'Saira';
   --headline-light-font: normal normal 400 2.4rem/3.2rem 'Saira';
   --title-heavy-font: normal normal bold 2rem/2.8rem 'Saira';
+  --title-light-font: normal normal 400 2rem/2.8rem 'Saira';
   --subheader-light-font: normal normal 400 1.6rem/2.4rem 'Archivo';
   --subheader-heavy-font: normal normal 600 1.6rem/2.4rem 'Archivo';
   --body-light-font: normal normal 400 1.4rem/2rem 'Archivo';
@@ -15,8 +16,11 @@
   --light-blue: #06ABEC;
   --blue: #337AB7;
   --light-grey: #6C6C6C;
+  --lighter-grey: #B7B7B7;
   --grey: #3c3c3c;
   --dark-grey: #1e2021;
+  --success-green: #3CC13B;
+  --yellow-elevation: 0rem 1.5rem 7.0rem -1rem rgba(255, 224, 0, 0.59);
 }
 
 * {
