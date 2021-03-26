@@ -2,6 +2,7 @@
     background-color: var(--light-yellow);
     font: var(--subheader-heavy-font);
     max-width: 16.6rem;
+    box-shadow: var( --yellow-elevation);
     width: 100%;
     padding: 1.2rem 2rem;
     display: flex;
@@ -11,12 +12,14 @@
     border: 0px;
     border-radius: 0.6rem;
     transition: 300ms;
+    color: var(--grey);
 }
 
 .button:hover{
     background-color: var(--black);
     color: var(--white);
     cursor: pointer;
+    box-shadow: none;
 }
 
 .buttonOutline{
@@ -27,4 +30,5 @@
     background-color: var(--lighter-grey)!important;
     color: var(--light-grey)!important;
     cursor: auto;
+    box-shadow: none;
 }

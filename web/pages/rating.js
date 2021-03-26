@@ -23,7 +23,7 @@ export default function Rating(){
                             </div>
                             <p>Como foi sua experiencia com Guatura?</p>
                             <div className={styles.stars} onClick={()=>setAvaliacao(3)}>
-                                <Star updateRate={setRate}/>
+                                <Star updateRate={setRate} rating={rate}/>
                                 
                             </div>
                             <Button isOutline={false} disabled={avaliacao===0} text="Confirmar" onClick={()=>avaliacao>0? setAvaliado(true):null}></Button></>):(
