@@ -30,12 +30,14 @@ export default function App() {
           Hello world
         </Button>
         <FormField secureTextEntry={true} 
-                   autoCompleteType={'password'}>
+                  defaultValue=""
+                  onChangeText={(v) => console.log(v.trim() === "2")}
+                  autoCompleteType={'password'}>
           Senha
         </FormField>
         <FormField keyboardType={'email-address'}
                    autoCompleteType={'email'}
-                   onChange={console.log}>
+                   onChangeText={console.log}>
           Email
         </FormField>
       </Container>
