@@ -6,7 +6,7 @@ import {StyledInput} from './styles';
 const FormField: React.FC<TextInputProps> = ({children, ...props}) => {
   return (
     <>
-      <SubheaderLight>
+      <SubheaderLight style={ {color:'grey'} } >
         {children}
       </SubheaderLight>
       <StyledInput {...props}> </StyledInput>
