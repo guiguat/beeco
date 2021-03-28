@@ -34,7 +34,8 @@ export default function App() {
           Senha
         </FormField>
         <FormField keyboardType={'email-address'}
-                   autoCompleteType={'email'}>
+                   autoCompleteType={'email'}
+                   onChange={console.log}>
           Email
         </FormField>
       </Container>
