@@ -6,4 +6,5 @@ export const StyledInput = styled.TextInput`
     color: ${props =>  props.theme.colors.lightGrey};
     border-radius: ${props => props.theme.borderRadius};
     padding: 12px;
+    margin-top: 8px;
 `;
