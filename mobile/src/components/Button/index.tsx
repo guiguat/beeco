@@ -3,12 +3,15 @@ import { TouchableOpacityProps } from 'react-native';
 import { SubheaderHeavy } from '../../styles/fonts';
 import {StyledButton} from './styles'
 
-interface Props extends TouchableOpacityProps {isOutline?: boolean} 
+interface Props extends TouchableOpacityProps {
+  isOutline?: boolean,
+  content?: any
+} 
 
-const Button: React.FC<Props> = ({isOutline, children, ...props}) => {
+const Button: React.FC<Props> = ({isOutline, content, children, ...props}) => {
   return (
     <StyledButton {...props} isOutline={isOutline??false}>
-      <SubheaderHeavy>{children}</SubheaderHeavy>
+      {content??(<SubheaderHeavy>{children}</SubheaderHeavy>)}
     </StyledButton>
   );
 }
