@@ -1,7 +1,7 @@
 import React from 'react';
 import { ActivityIndicator, StatusBar } from 'react-native';
 import Button from './components/Button';
-import { AppLoading, Container } from './App.styles';
+import { Container } from './App.styles';
 import { ThemeProvider } from './styles/styled-components';
 import themes from './styles/theme';
 import { useFonts as useArchivo, Archivo_400Regular, Archivo_600SemiBold} from '@expo-google-fonts/archivo';
