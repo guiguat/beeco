@@ -1,6 +1,7 @@
 import React from 'react';
 import { ActivityIndicator, StatusBar } from 'react-native';
 import Button from './components/Button';
+import FormField from './components/FormField';
 import { Container } from './App.styles';
 import { ThemeProvider } from './styles/styled-components';
 import themes from './styles/theme';
@@ -28,6 +29,14 @@ export default function App() {
         <Button>
           Hello world
         </Button>
+        <FormField secureTextEntry={true} 
+                   autoCompleteType={'password'}>
+          Senha
+        </FormField>
+        <FormField keyboardType={'email-address'}
+                   autoCompleteType={'email'}>
+          Email
+        </FormField>
       </Container>
     </ThemeProvider>
   );
