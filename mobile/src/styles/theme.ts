@@ -12,6 +12,7 @@ const themes = {
         lightGrey: "#6C6C6C",
         lighterGrey: "#B7B7B7",
         grey: "#3c3c3c",
+        altGrey: "#EBEBEB",
         darkGrey: "#1e2021",
     }
 };
