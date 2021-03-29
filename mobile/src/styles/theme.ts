@@ -14,6 +14,7 @@ const themes = {
         grey: "#3c3c3c",
         altGrey: "#F4F4F4",
         darkGrey: "#1e2021",
+        waringRed: "#FF3232"
     }
 };
 export type MyTheme = typeof themes;
