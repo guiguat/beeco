@@ -11,3 +11,10 @@ export const StyledInput = styled.TextInput`
     font-size: 12px;
     line-height: 16px;
 `;
+
+export const WarningText = styled.Text`
+    font-size: 6px;
+    line-height: 8px;
+    font-family: 'Archivo_400Regular';
+    color: 'red';
+`;
