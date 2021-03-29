@@ -1,5 +1,18 @@
 import {DefaultTheme} from 'styled-components';
-
+export enum Pallete {
+    yellow = "yellow",
+    white = "white",
+    lightYellow = "lightYellow",
+    black = "black",
+    lightBlue = "lightBlue",
+    blue = "blue",
+    lightGrey = "lightGrey",
+    lighterGrey = "lighterGrey",
+    grey = "grey",
+    altGrey = "altGrey",
+    darkGrey = "darkGrey",
+    warningRed = "warningRed",
+}
 const themes = {
     borderRadius: "6px",
     colors:{

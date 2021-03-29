@@ -1,36 +1,26 @@
 import React, {useState, useEffect} from 'react';
 import { TextInputProps } from 'react-native';
 import { SubheaderLight } from '../../styles/fonts';
+import { Pallete } from '../../styles/theme';
 import {StyledInput, WarningText} from './styles';
 
 interface Props extends TextInputProps {
-  isFieldRequired: boolean,
-  isFieldSecure?: boolean
+  required?: boolean,
+  errorMessage?: string,
 }
 
-const FormField: React.FC<Props> = ({isFieldRequired, isFieldSecure, children, ...props}) => {
-  const [textValue, setTextValue] = useState("");
-  const [isInputWrong, setIsInputWrong] = useState("");
-  useEffect(() => {
-    if (textValue.trim() === "" && isFieldRequired)
-      setIsInputWrong("*O Campo acima é obrigatório");
-    else 
-      setIsInputWrong("");
-  });
+const FormField: React.FC<Props> = (
+  {required, errorMessage, children, ...props}) => {
   return (
     <>
-      <SubheaderLight style={ {color:'grey'} } >
+      <SubheaderLight color={Pallete.grey} >
         {children}
+        {required? <SubheaderLight color={Pallete.yellow}>*</SubheaderLight> : null}
       </SubheaderLight>
-      <StyledInput {...props} defaultValue=""
-                  onChangeText = { text => {
-                    setTextValue(text);
-                  }}
-                  secureTextEntry={isFieldSecure??false}> 
-      </StyledInput>
-      <WarningText>
-        {isInputWrong}
-      </WarningText>
+      <StyledInput {...props} defaultValue=""/>
+      {
+        errorMessage ? <WarningText> {errorMessage} </WarningText> : null
+      }
     </>
   );
 }
