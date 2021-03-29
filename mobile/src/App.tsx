@@ -22,11 +22,6 @@ export default function App() {
     return <ActivityIndicator size={'large'} color={themes.colors.yellow}/>;
   }
   return (
-    //deixa os formfields desse jeito por enquanto pq 
-    // a gente vai usar lib pra lidar com validação e erro e tals ai eu 
-    // ja deixei preparada a mensagem funcionando e o required só serve pra
-    // deixar bonitinho com o * colorido
-    
     <ThemeProvider theme={themes} >
       <Container>
         <StatusBar backgroundColor={themes.colors.white} barStyle={'dark-content'}/>
