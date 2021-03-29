@@ -16,7 +16,6 @@ const FormField: React.FC<Props> = ({isFieldRequired, isFieldSecure, children, .
       setIsInputWrong("*O Campo acima é obrigatório");
     else 
       setIsInputWrong("");
-    console.log(isInputWrong);
   });
   return (
     <>

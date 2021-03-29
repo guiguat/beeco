@@ -29,17 +29,19 @@ export default function App() {
         <Button>
           Hello world
         </Button>
-        <FormField secureTextEntry={true} 
-                  defaultValue=""
-                  onChangeText={(v) => console.log(v.trim() === "2")}
-                  autoCompleteType={'password'}>
-          Senha
-        </FormField>
         <FormField keyboardType={'email-address'}
                    autoCompleteType={'email'}
-                   onChangeText={console.log}>
+                   onChangeText={console.log}
+                   isFieldRequired={true}>
           Email
         </FormField>
+        <FormField secureTextEntry={true} 
+                  autoCompleteType={'password'}
+                  isFieldRequired={true}
+                  isFieldSecure={true}>
+          Senha
+        </FormField>
+        
       </Container>
     </ThemeProvider>
   );
