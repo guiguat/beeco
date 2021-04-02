@@ -1,13 +1,22 @@
 import React from 'react'
-import { SubheaderLight } from '../../styles/fonts'
-import { Container } from './style'
+import { Container, HexBubble, WellcomeMessage } from './style'
 import { Image } from 'react-native'
+import Button from '../../components/Button'
 
 const StartupPage: React.FC = () => {
   return (
     <Container>
-      <Image source={require('../../assets/img/bee.png')}></Image>
-      <SubheaderLight>hello world</SubheaderLight>
+      <HexBubble
+        source={require('../../assets/img/hex_bubble.png')}
+      ></HexBubble>
+      <Image source={require('../../assets/img/bee.png')} />
+      <WellcomeMessage>
+        Bem vindo(a), {'\n'} como deseja prosseguir?
+      </WellcomeMessage>
+      <Button isOutline size={{ width: '193px' }} style={{ marginBottom: 28 }}>
+        Cadastrar
+      </Button>
+      <Button size={{ width: '193px' }}>Login</Button>
     </Container>
   )
 }

@@ -6,6 +6,7 @@ import { StyledButton } from './styles'
 interface Props extends TouchableOpacityProps {
   isOutline?: boolean
   content?: any
+  size?: { width?: string; height?: string }
 }
 
 const Button: React.FC<Props> = ({
