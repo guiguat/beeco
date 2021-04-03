@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { TextInputProps } from 'react-native'
 import { SubheaderLight } from '../../styles/fonts'
 import themes from '../../styles/theme'
-import { Input, WarningText, FormFieldView } from './styles'
+import { WarningText, FormFieldView } from './styles'
 
 interface Props extends TextInputProps {
   required?: boolean
