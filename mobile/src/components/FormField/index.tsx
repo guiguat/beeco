@@ -22,7 +22,7 @@ const FormField: React.FC<Props> = ({
       <SubheaderLight color={themes.colors.grey}>
         {field}
         {required ? (
-          <SubheaderLight color={themes.colors.yellow}>*</SubheaderLight>
+          <SubheaderLight color={themes.colors.yellow}>{''} *</SubheaderLight>
         ) : null}
       </SubheaderLight>
       {children}
