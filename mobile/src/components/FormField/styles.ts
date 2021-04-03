@@ -1,6 +1,10 @@
 import styled from '../../styles/styled-components'
 
-export const StyledInput = styled.TextInput`
+export const FormFieldView = styled.View`
+  width: 100%;
+`
+
+export const Input = styled.TextInput`
   background-color: ${(props) => props.theme.colors.lightest};
   border: 1px solid ${(props) => props.theme.colors.lighterGrey};
   color: ${(props) => props.theme.colors.lightGrey};
@@ -9,6 +13,7 @@ export const StyledInput = styled.TextInput`
   margin-top: 4px;
   font-family: 'Archivo_400Regular';
   font-size: 12px;
+  width: 100%;
   line-height: 16px;
 `
 

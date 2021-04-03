@@ -1,5 +1,6 @@
 const themes = {
   borderRadius: '6px',
+  padding: '20px',
   colors: {
     yellow: '#FFE000',
     white: '#fafafa',

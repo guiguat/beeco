@@ -1,8 +1,8 @@
-import { TitleLight } from './../../styles/fonts'
+import { TitleLight } from '../../styles/fonts'
 import styled from '../../styles/styled-components'
 
 export const Container = styled.SafeAreaView`
-  padding: 20px;
+  padding: ${(props) => props.theme.padding};
   flex: 1;
   align-items: center;
   justify-content: center;

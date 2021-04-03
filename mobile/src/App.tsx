@@ -12,7 +12,7 @@ import {
   Saira_400Regular,
   Saira_700Bold,
 } from '@expo-google-fonts/saira'
-import StartupPage from './pages/Startup'
+import Login from './pages/Login'
 
 export default function App() {
   const [archivoLoaded] = useArchivo({
@@ -29,7 +29,7 @@ export default function App() {
   }
   return (
     <ThemeProvider theme={themes}>
-      <StartupPage />
+      <Login />
     </ThemeProvider>
   )
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, HexBubble, WellcomeMessage } from './style'
+import { Container, HexBubble, WellcomeMessage } from './styles'
 import { Image } from 'react-native'
 import Button from '../../components/Button'
 
