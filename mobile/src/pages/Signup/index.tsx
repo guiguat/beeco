@@ -20,6 +20,7 @@ const Signup: React.FC = () => {
   return (
     <Container>
       <AddFotoModal
+        statusBarTranslucent={true}
         visible={modalVisible}
         onResult={() => setModalVisible(!modalVisible)}
         onRequestClose={() => setModalVisible(!modalVisible)}
