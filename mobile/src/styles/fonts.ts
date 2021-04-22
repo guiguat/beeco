@@ -40,7 +40,7 @@ export const SubheaderHeavy = styled.Text<FontProps>`
   color: ${(props) => props.color ?? themes.colors.grey};
 `
 export const BodyLight = styled.Text<FontProps>`
-  font-family: 'Saira_400Regular';
+  font-family: 'Archivo_400Regular';
   font-size: 14px;
   line-height: 20px;
   color: ${(props) => props.color ?? themes.colors.grey};
