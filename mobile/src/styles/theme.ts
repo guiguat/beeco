@@ -16,7 +16,7 @@ const themes = {
     darkGrey: '#1e2021',
     warningRed: '#FF3232',
     lightOrange: '#F3BB1C'
-  },
+  }
 }
 export type MyTheme = typeof themes
 export default themes

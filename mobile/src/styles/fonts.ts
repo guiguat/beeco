@@ -52,4 +52,18 @@ export const SmallLight = styled.Text<FontProps>`
   line-height: 14px;
   color: ${(props) => props.color ?? themes.colors.lightGrey};
 `
+
+export const SmallHeavy = styled.Text<FontProps>`
+  font-family: 'Archivo_600SemiBold';
+  font-size: 10px;
+  line-height: 10.5px;
+  color: ${(props) => props.color ?? themes.colors.darkYellow};
+`
+
+export const CaptionLight = styled.Text<FontProps>`
+  font-family: 'Archivo_400Regular';
+  font-size: 12px;
+  line-height: 16px;
+  color: ${(props) => props.color ?? themes.colors.lightGrey};
+`;
 // font: ${props => props.theme.subheaderHeavyFont};
