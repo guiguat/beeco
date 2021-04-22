@@ -33,7 +33,14 @@ const TaskCard: React.FC<Props> = ({
             <SmallLight>${minPrice} - ${maxPrice}</SmallLight>
             <SmallLight>{city}</SmallLight>
             <SmallLight>{description}</SmallLight>
-            {tags.map((tag) => tag?<Tag><SmallLight color={themes.colors.darkYellow}>{tag}</SmallLight></Tag>:"")}
+            {tags.map((tag) => tag?
+                                <Tag>
+                                    <SmallLight 
+                                      color={themes.colors.darkYellow}
+                                      style={{lineHeight: 10.5}}>
+                                        {tag}
+                                    </SmallLight>
+                                </Tag>:"")}
         </StyledTaskCard>
     );
 
