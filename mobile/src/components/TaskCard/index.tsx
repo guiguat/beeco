@@ -1,7 +1,7 @@
 import React from 'react'
 import { TouchableOpacityProps } from 'react-native'
 import { BodyLight, SmallLight } from '../../styles/fonts'
-import { StyledTaskCard, Tag } from './styles';
+import { StyledTaskCard, Tag, PseudoDiv, PseudoDivTitle, Description } from './styles';
 import themes from '../../styles/theme'
 
 interface Props extends TouchableOpacityProps {
@@ -9,6 +9,7 @@ interface Props extends TouchableOpacityProps {
         title: string,
         minPrice: number,
         maxPrice: number,
+        //Precisamos decidir se data sera recebido como um dateTime ou string
         date: string,
         city: string,
         description: string
@@ -26,21 +27,31 @@ const TaskCard: React.FC<Props> = ({
         maxPrice, 
         date, 
         city, 
-        description, tags} = info;
+        description, 
+        tags} = info;
     return(
-        <StyledTaskCard>
-            <BodyLight>{title}</BodyLight>
-            <SmallLight>${minPrice} - ${maxPrice}</SmallLight>
-            <SmallLight>{city}</SmallLight>
-            <SmallLight>{description}</SmallLight>
-            {tags.map((tag) => tag?
-                                <Tag>
-                                    <SmallLight 
-                                      color={themes.colors.darkYellow}
-                                      style={{lineHeight: 10.5}}>
-                                        {tag}
-                                    </SmallLight>
-                                </Tag>:"")}
+        <StyledTaskCard {...props}>
+            <PseudoDivTitle>
+                <BodyLight>{title}</BodyLight>
+                <SmallLight style={{lineHeight: 20}}>{date}</SmallLight>
+            </PseudoDivTitle>
+            <PseudoDiv style={{marginBottom: 13, marginTop: 8}}>
+                <SmallLight style={{marginRight: 16}}>${minPrice} - ${maxPrice}</SmallLight>
+                <SmallLight>{city}</SmallLight>
+            </PseudoDiv>
+            <Description>
+                <SmallLight>{description}</SmallLight>
+            </Description>
+            <PseudoDiv>
+                {tags.map((tag) => tag?
+                                    <Tag>
+                                        <SmallLight 
+                                        color={themes.colors.darkYellow}
+                                        style={{lineHeight: 10.5}}>
+                                            {tag}
+                                        </SmallLight>
+                                    </Tag>:"")}
+            </PseudoDiv>
         </StyledTaskCard>
     );
 
