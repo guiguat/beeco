@@ -50,7 +50,7 @@ const TaskCard: React.FC<Props> = ({
                             style={{lineHeight: 10.5}}>
                                 {value}
                             </SmallLight>
-                        </Tag>:"")}
+                        </Tag>:null)}
             </PseudoDiv>
         </StyledTaskCard>
     );
