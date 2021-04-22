@@ -45,4 +45,11 @@ export const BodyLight = styled.Text<FontProps>`
   line-height: 20px;
   color: ${(props) => props.color ?? themes.colors.grey};
 `
+
+export const SmallLight = styled.Text<FontProps>`
+  font-family: 'Archivo_400Regular';
+  font-size: 10px;
+  line-height: 14px;
+  color: ${(props) => props.color ?? themes.colors.lightGrey};
+`
 // font: ${props => props.theme.subheaderHeavyFont};
