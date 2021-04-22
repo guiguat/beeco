@@ -1,7 +1,8 @@
 import React from 'react'
 import { TouchableOpacityProps } from 'react-native'
 import { BodyLight, SmallLight } from '../../styles/fonts'
-import { StyledTaskCard } from './styles';
+import { StyledTaskCard, Tag } from './styles';
+import themes from '../../styles/theme'
 
 interface Props extends TouchableOpacityProps {
     info: {
@@ -32,7 +33,7 @@ const TaskCard: React.FC<Props> = ({
             <SmallLight>${minPrice} - ${maxPrice}</SmallLight>
             <SmallLight>{city}</SmallLight>
             <SmallLight>{description}</SmallLight>
-            {tags.map((tag) => tag?<SmallLight>{tag}</SmallLight>:"")}
+            {tags.map((tag) => tag?<Tag><SmallLight color={themes.colors.darkYellow}>{tag}</SmallLight></Tag>:"")}
         </StyledTaskCard>
     );
 
