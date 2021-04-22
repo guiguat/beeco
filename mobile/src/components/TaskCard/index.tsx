@@ -36,21 +36,21 @@ const TaskCard: React.FC<Props> = ({
                 <SmallLight style={{lineHeight: 20}}>{date}</SmallLight>
             </PseudoDivTitle>
             <PseudoDiv style={{marginBottom: 13, marginTop: 8}}>
-                <SmallLight style={{marginRight: 16}}>${minPrice} - ${maxPrice}</SmallLight>
+                <SmallLight style={{marginRight: 16}}>R${minPrice} - R${maxPrice}</SmallLight>
                 <SmallLight>{city}</SmallLight>
             </PseudoDiv>
             <Description>
                 <SmallLight>{description}</SmallLight>
             </Description>
             <PseudoDiv>
-                {tags.map((tag) => tag?
-                                    <Tag>
-                                        <SmallLight 
-                                        color={themes.colors.darkYellow}
-                                        style={{lineHeight: 10.5}}>
-                                            {tag}
-                                        </SmallLight>
-                                    </Tag>:"")}
+                {tags.map((value, index) =>
+                    value? <Tag key={index}>
+                            <SmallLight 
+                            color={themes.colors.darkYellow}
+                            style={{lineHeight: 10.5}}>
+                                {value}
+                            </SmallLight>
+                        </Tag>:"")}
             </PseudoDiv>
         </StyledTaskCard>
     );
