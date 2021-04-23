@@ -1,4 +1,5 @@
 import styled from '../../styles/styled-components';
+import {FlatListProps} from 'react-native';
 
 export const StyledView = styled.View`
     padding: ${(props) => props.theme.padding} 20px;
@@ -38,5 +39,9 @@ font-family: 'Archivo_400Regular';
 font-size: 12px;
 width: 100%;
 line-height: 16px;
+`;
+
+export const StyledFlatList = styled.FlatList<FlatListProps>`
+    margin-bottom: 60px;
 `;
 
