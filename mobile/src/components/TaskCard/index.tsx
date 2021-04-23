@@ -4,7 +4,7 @@ import { BodyLight, SmallLight } from '../../styles/fonts'
 import { StyledTaskCard, Tag, PseudoDiv, PseudoDivTitle, Description } from './styles';
 import themes from '../../styles/theme'
 
-interface Props extends TouchableOpacityProps {
+export interface Props extends TouchableOpacityProps {
     info: {
         title: string,
         minPrice: number,
