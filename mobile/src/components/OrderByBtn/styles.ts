@@ -1,6 +1,6 @@
 import styled from '../../styles/styled-components';
 
-export const StyledButton = styled.TouchableOpacity`
+export const StyledButton = styled.Pressable`
     background-color: ${(props) => props.theme.colors.lightOrange};
     border-radius: 10px;
     padding: 5px 8px;
