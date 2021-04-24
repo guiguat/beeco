@@ -1,15 +1,14 @@
 import React from 'react'
 import { TouchableOpacityProps } from 'react-native'
 import { BodyLight, SmallLight } from '../../styles/fonts'
-import { StyledTaskCard, Tag, PseudoDiv, PseudoDivTitle, Description } from './styles';
+import { StyledTaskCard, Tag, RowDiv, RowDivTitle, Description } from './styles';
 import themes from '../../styles/theme'
 
-export interface Props extends TouchableOpacityProps {
+export interface taskCardProps extends TouchableOpacityProps {
     info: {
         title: string,
         minPrice: number,
         maxPrice: number,
-        //Precisamos decidir se data sera recebido como um dateTime ou string
         date: string,
         city: string,
         description: string
@@ -17,7 +16,7 @@ export interface Props extends TouchableOpacityProps {
     },
 }
 
-const TaskCard: React.FC<Props> = ({
+const TaskCard: React.FC<taskCardProps> = ({
   children,
   info,
   ...props
@@ -31,18 +30,18 @@ const TaskCard: React.FC<Props> = ({
         tags} = info;
     return(
         <StyledTaskCard {...props}>
-            <PseudoDivTitle>
+            <RowDivTitle>
                 <BodyLight>{title}</BodyLight>
                 <SmallLight style={{lineHeight: 20}}>{date}</SmallLight>
-            </PseudoDivTitle>
-            <PseudoDiv style={{marginBottom: 13, marginTop: 8}}>
+            </RowDivTitle>
+            <RowDiv style={{marginBottom: 13, marginTop: 8}}>
                 <SmallLight style={{marginRight: 16}}>R${minPrice} - R${maxPrice}</SmallLight>
                 <SmallLight>{city}</SmallLight>
-            </PseudoDiv>
+            </RowDiv>
             <Description>
                 <SmallLight>{description}</SmallLight>
             </Description>
-            <PseudoDiv>
+            <RowDiv>
                 {tags.map((value, index) =>
                     value? <Tag key={index}>
                             <SmallLight 
@@ -51,7 +50,7 @@ const TaskCard: React.FC<Props> = ({
                                 {value}
                             </SmallLight>
                         </Tag>:null)}
-            </PseudoDiv>
+            </RowDiv>
         </StyledTaskCard>
     );
 

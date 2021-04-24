@@ -5,7 +5,7 @@ export const StyledView = styled.View`
     padding: ${(props) => props.theme.padding} 20px;
 `;
 
-export const PseudoDiv = styled.View`
+export const Row = styled.View`
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: 21px;

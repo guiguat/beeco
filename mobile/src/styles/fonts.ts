@@ -57,7 +57,7 @@ export const SmallHeavy = styled.Text<FontProps>`
   font-family: 'Archivo_600SemiBold';
   font-size: 10px;
   line-height: 10.5px;
-  color: ${(props) => props.color ?? themes.colors.darkYellow};
+  color: ${(props) => props.color ?? themes.colors.grey};
 `
 
 export const CaptionLight = styled.Text<FontProps>`
@@ -66,4 +66,3 @@ export const CaptionLight = styled.Text<FontProps>`
   line-height: 16px;
   color: ${(props) => props.color ?? themes.colors.lightGrey};
 `;
-// font: ${props => props.theme.subheaderHeavyFont};
