@@ -42,6 +42,7 @@ line-height: 16px;
 `;
 
 export const StyledFlatList = styled.FlatList<FlatListProps>`
-    margin-bottom: 60px;
+    margin-bottom: 20px;
+    padding-top: 0px;
 `;
 

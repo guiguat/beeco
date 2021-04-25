@@ -28,6 +28,7 @@ const TaskCard: React.FC<taskCardProps> = ({
         city, 
         description, 
         tags} = info;
+    console.log(info);
     return(
         <StyledTaskCard {...props}>
             <RowDivTitle>

@@ -2,7 +2,7 @@ import styled from '../../styles/styled-components';
 
 export const StyledTaskCard = styled.TouchableOpacity`
     padding: 12.7px 16px;
-    margin: 20px;
+    margin-bottom: 20px;
     width:100%;
     border: 1px solid ${(props) => props.theme.colors.lighterGrey};
     border-radius: 6px;
