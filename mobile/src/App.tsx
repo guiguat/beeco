@@ -13,6 +13,7 @@ import {
   Saira_700Bold,
 } from '@expo-google-fonts/saira'
 import Signup from './pages/Signup'
+import HomePage from './pages/HomePage'
 
 export default function App() {
   const [archivoLoaded] = useArchivo({
@@ -29,7 +30,7 @@ export default function App() {
   }
   return (
     <ThemeProvider theme={themes}>
-      <Signup />
+      <HomePage />
     </ThemeProvider>
   )
 }
