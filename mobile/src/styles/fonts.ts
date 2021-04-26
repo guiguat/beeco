@@ -39,10 +39,38 @@ export const SubheaderHeavy = styled.Text<FontProps>`
   line-height: 24px;
   color: ${(props) => props.color ?? themes.colors.grey};
 `
-export const BodyLight = styled.Text<FontProps>`
-  font-family: 'Saira_400Regular';
+
+export const BodyHeavy = styled.Text<FontProps>`
+  font-family: 'Archivo_600SemiBold';
   font-size: 14px;
   line-height: 20px;
   color: ${(props) => props.color ?? themes.colors.grey};
 `
-// font: ${props => props.theme.subheaderHeavyFont};
+
+export const BodyLight = styled.Text<FontProps>`
+  font-family: 'Archivo_400Regular';
+  font-size: 14px;
+  line-height: 20px;
+  color: ${(props) => props.color ?? themes.colors.grey};
+`
+
+export const SmallLight = styled.Text<FontProps>`
+  font-family: 'Archivo_400Regular';
+  font-size: 10px;
+  line-height: 14px;
+  color: ${(props) => props.color ?? themes.colors.lightGrey};
+`
+
+export const SmallHeavy = styled.Text<FontProps>`
+  font-family: 'Archivo_600SemiBold';
+  font-size: 10px;
+  line-height: 10.5px;
+  color: ${(props) => props.color ?? themes.colors.grey};
+`
+
+export const CaptionLight = styled.Text<FontProps>`
+  font-family: 'Archivo_400Regular';
+  font-size: 12px;
+  line-height: 16px;
+  color: ${(props) => props.color ?? themes.colors.lightGrey};
+`;
