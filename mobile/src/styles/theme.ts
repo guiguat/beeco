@@ -15,7 +15,8 @@ const themes = {
     lightest: '#FFFFFF',
     darkGrey: '#1e2021',
     warningRed: '#FF3232',
-    lightOrange: '#FFF2CB'
+    lightOrange: '#FFF2CB',
+    green: "#BCF285"
   }
 }
 export type MyTheme = typeof themes
