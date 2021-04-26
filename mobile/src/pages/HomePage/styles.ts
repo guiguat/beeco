@@ -39,3 +39,8 @@ export const Input = styled.TextInput`
   width: 100%;
   line-height: 16px;
 `
+
+export const StyledBackGroundImage = styled.ImageBackground`
+  justify-content: center;
+  align-items: center;
+`
