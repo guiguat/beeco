@@ -7,20 +7,21 @@ import {
   FormRow,
   InputProfilePhoto,
   Content,
-  StyledBackGroundImage
+  HexBubble,
 } from './styles'
 import Button from '../../components/Button'
 import { Feather } from '@expo/vector-icons'
 import themes from '../../styles/theme'
 import AddFotoModal from '../../components/AddFotoModal'
 import { ScrollView } from 'react-native-gesture-handler'
-import ProfileHeader from '../../components/ProfileHeader';
+import ProfileHeader from '../../components/ProfileHeader'
 
 const EditProfile: React.FC = () => {
   const [modalVisible, setModalVisible] = useState(false)
   return (
     <Container>
-      <ProfileHeader isEdit={true}/>
+      <ProfileHeader isEdit={true} />
+      <HexBubble source={require('../../assets/img/hex_bubble.png')} />
       <AddFotoModal
         statusBarTranslucent={true}
         visible={modalVisible}
@@ -30,7 +31,10 @@ const EditProfile: React.FC = () => {
       <ScrollView>
         <Content>
           <FormView>
-            <InputProfilePhoto onPress={() => setModalVisible(true)} style={{opacity: 75}}>
+            <InputProfilePhoto
+              onPress={() => setModalVisible(true)}
+              style={{ opacity: 75 }}
+            >
               <Feather name="plus" size={24} color={themes.colors.grey} />
             </InputProfilePhoto>
             <FormField required field="Nome">
@@ -55,4 +59,4 @@ const EditProfile: React.FC = () => {
   )
 }
 
-export default EditProfile;
+export default EditProfile
