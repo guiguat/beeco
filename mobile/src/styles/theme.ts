@@ -6,6 +6,7 @@ const themes = {
     white: '#fafafa',
     lightYellow: '#FFE235',
     darkYellow: '#CC9F02',
+    darkerYellow: "#AD8700",
     black: '#221D1D',
     lightBlue: '#06ABEC',
     blue: '#337AB7',
@@ -16,7 +17,8 @@ const themes = {
     darkGrey: '#1e2021',
     warningRed: '#FF3232',
     lightOrange: '#FFF2CB',
-    green: "#BCF285"
+    green: "#BCF285",
+    lightBrown: "#FFF2CB"
   }
 }
 export type MyTheme = typeof themes
