@@ -1,7 +1,7 @@
 import React from 'react'
-import { Image } from 'react-native'
-import { StyledView, Row, HexBubble, TextWrapper, Input } from './styles'
-import { HeadlineLight, CaptionLight } from '../../styles/fonts'
+import { Image, TouchableOpacity } from 'react-native'
+import { StyledView, Row, HexBubble, TextWrapper, Input, StyledBackGroundImage } from './styles'
+import { HeadlineLight, CaptionLight, SmallLight } from '../../styles/fonts'
 import OrderByBtn from '../../components/OrderByBtn'
 import TaskCard, { taskCardInfo } from '../../components/TaskCard'
 import { FlatList } from 'react-native-gesture-handler'
@@ -52,9 +52,18 @@ const HomePage: React.FC = () => {
   return (
     <StyledView>
       <HexBubble source={require('../../assets/img/hex_bubble.png')} />
-      <Row>
+      <Row style={{justifyContent: "space-between", alignItems:"flex-start"}}>
         <Image source={require('../../assets/img/bee_logo.png')} />
-        {/* profile picture */}
+        <TouchableOpacity>
+          <StyledBackGroundImage source = {require('../../assets/img/hard_code_profile_pic.png')} 
+          style={{  width: 45, height: 45}}>
+            <StyledBackGroundImage source={require('../../assets/img/rating_star.png')} 
+            style={{  width: 22, height: 21, marginLeft: 25, marginTop: 25}}> 
+              <SmallLight>5</SmallLight>
+            </StyledBackGroundImage>  
+          </StyledBackGroundImage>
+        </TouchableOpacity>
+        
       </Row>
       <TextWrapper>
         <HeadlineLight>Encontre tarefas da nossa colmeia</HeadlineLight>
