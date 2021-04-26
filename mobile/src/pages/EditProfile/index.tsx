@@ -7,7 +7,7 @@ import {
   FormRow,
   InputProfilePhoto,
   Content,
-  CurrentProfilePic
+  StyledBackGroundImage
 } from './styles'
 import Button from '../../components/Button'
 import { Feather } from '@expo/vector-icons'

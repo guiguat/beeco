@@ -30,15 +30,14 @@ export const FormField = styled(DefaultFormField)`
 
 export const InputProfilePhoto = styled.TouchableOpacity`
   padding: 42px;
-  background-color: ${(props) => props.theme.colors.lighterGrey};
   border-color: ${(props) => props.theme.colors.lightGrey};
   border-width: 1px;
   border-style: dashed;
   border-radius: 55px;
   margin-bottom: 18px;
 `
-export const CurrentProfilePic = styled.Image`
-  border-radius: 55px;
-  z-index:-1;
 
+export const StyledBackGroundImage = styled.ImageBackground`
+  justify-content: center;
+  align-items: center;
 `
