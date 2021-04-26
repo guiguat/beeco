@@ -21,7 +21,7 @@ const ProfileHeader: React.FC<Props> = ({isEdit}) => {
                         marginRight: 20
                     }}
                     content={
-                        <Feather name="arrow-left" size={20} color={themes.colors.grey} />
+                        <Feather name="arrow-left" size={16} color={themes.colors.grey} />
                     }
                 />
                 <TitleLight>{isEdit? "Alterar": "Meu"} Perfil</TitleLight>
@@ -33,7 +33,7 @@ const ProfileHeader: React.FC<Props> = ({isEdit}) => {
                         width: 50
                     }}
                     content={
-                        <Octicons name="pencil" size={20} color={themes.colors.lightGrey} />      
+                        <Octicons name="pencil" size={16} color={themes.colors.lightGrey} />      
                     }/> : null}
         </StyledHeader>
     );
