@@ -14,7 +14,12 @@ import {
 } from '@expo-google-fonts/saira'
 import Signup from './pages/Signup'
 import HomePage from './pages/HomePage'
-import EditProfile from './pages/EditProfile'
+import EditProfile from './pages/EditProfile';
+import MyProfile from './pages/MyProfile';
+import Login from './pages/Login';
+import Startup from './pages/Startup';
+import Task from './pages/Task';
+import OtherUsersProfile from './pages/OtherUserProfile';
 
 export default function App() {
   const [archivoLoaded] = useArchivo({

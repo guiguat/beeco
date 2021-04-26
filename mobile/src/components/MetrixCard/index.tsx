@@ -2,7 +2,7 @@ import React from 'react';
 import { ViewProps } from 'react-native';
 import { AntDesign, FontAwesome, FontAwesome5 } from '@expo/vector-icons';
 import theme from '../../styles/theme';
-import { Card, MeasureUnit, StyledCaptionLight, StyledDisplayHeavy } from './style';
+import { Card, MeasureUnit, StyledCaptionLight, StyledDisplayHeavy } from './styles';
 
 interface Props extends ViewProps {
     indentifier:"rating" | "tasks" | "jobsDone"
@@ -28,7 +28,7 @@ const MetrixCard: React.FC<Props> = ({children, indentifier}) =>{
             <Card>
                 <MeasureUnit>
                     <FontAwesome name="check-circle" size={16}  color={theme.colors.darkerYellow}/>
-                    <StyledCaptionLight >Estrelas</StyledCaptionLight>
+                    <StyledCaptionLight >Tarefas</StyledCaptionLight>
                 </MeasureUnit>
                 <StyledDisplayHeavy >{children}</StyledDisplayHeavy>
          </Card>
@@ -39,7 +39,7 @@ const MetrixCard: React.FC<Props> = ({children, indentifier}) =>{
             <Card>
                 <MeasureUnit>
                     <FontAwesome5 name="smile" size={16}  color={theme.colors.darkerYellow}/>
-                    <StyledCaptionLight>Estrelas</StyledCaptionLight>
+                    <StyledCaptionLight>Contratos</StyledCaptionLight>
                 </MeasureUnit>
                 <StyledDisplayHeavy>{children}</StyledDisplayHeavy>
             </Card>

@@ -6,7 +6,7 @@ export const Card = styled.View`
     align-items: center;
     background-color: ${(props) => props.theme.colors.lightBrown};
     border-radius: ${(props) => props.theme.borderRadius};
-    width: 100%;
+    width: 33%;
     padding: 10px ;
 `
 
