@@ -39,6 +39,14 @@ export const SubheaderHeavy = styled.Text<FontProps>`
   line-height: 24px;
   color: ${(props) => props.color ?? themes.colors.grey};
 `
+
+export const BodyHeavy = styled.Text<FontProps>`
+  font-family: 'Archivo_600SemiBold';
+  font-size: 14px;
+  line-height: 20px;
+  color: ${(props) => props.color ?? themes.colors.grey};
+`
+
 export const BodyLight = styled.Text<FontProps>`
   font-family: 'Archivo_400Regular';
   font-size: 14px;
