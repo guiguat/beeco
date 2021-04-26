@@ -5,6 +5,7 @@ export const StyledHeader = styled.View`
   justify-content: space-between;
   align-items: center;
   padding: ${(props) => props.theme.padding} ${(props) => props.theme.padding} 0;
+  margin-top: ${(props) => props.theme.padding};
 `
 
 export const Row = styled.View`
