@@ -20,7 +20,7 @@ const EditProfile: React.FC = () => {
   const [modalVisible, setModalVisible] = useState(false)
   return (
     <Container>
-      <NavigationHeader isEdit={true} >Alterar Perfil</NavigationHeader>
+      <NavigationHeader isEdit={false} >Alterar Perfil</NavigationHeader>
       <HexBubble source={require('../../assets/img/hex_bubble.png')} />
       <AddFotoModal
         statusBarTranslucent={true}
