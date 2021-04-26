@@ -15,6 +15,7 @@ import {
 import Signup from './pages/Signup'
 import HomePage from './pages/HomePage'
 import EditProfile from './pages/EditProfile'
+import Task from './pages/Task'
 
 export default function App() {
   const [archivoLoaded] = useArchivo({
