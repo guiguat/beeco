@@ -2,6 +2,7 @@ import React from 'react';
 import { ScrollView } from 'react-native-gesture-handler'
 import { Feather } from '@expo/vector-icons'
 import Button from '../../components/Button';
+import NavigationHeader from '../../components/NavigationHeader';
 import { HeadlineLight, TitleLight, BodyLight, BodyHeavy, SmallLight } from '../../styles/fonts';
 import { HexBubble, 
     Row, Tag, 
@@ -17,20 +18,7 @@ const Task: React.FC = () => {
     return(
         <StyledScrollView showsVerticalScrollIndicator={false}>
             <HexBubble source={require('../../assets/img/hex_bubble.png')} />
-            <Row>
-                <Button
-                    isOutline
-                    style={{
-                    borderRadius: 20,
-                    width: 50,
-                    marginRight: 20
-                    }}
-                    content={
-                        <Feather name="arrow-left" size={16} color={themes.colors.grey} />
-                    }
-                />
-                <TitleLight>Tarefa</TitleLight>
-            </Row>
+            <NavigationHeader isEdit={false}>Tarefa</NavigationHeader>
             <HeadlineLight style={{marginTop: 25}}>Fazer uma logo para mim</HeadlineLight>
             <Row style={{justifyContent:"space-between", marginTop:12}}>
                 <BodyHeavy color={themes.colors.lightGrey}>R$ 80,00 - 120,00</BodyHeavy>

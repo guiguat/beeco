@@ -14,13 +14,13 @@ import { Feather } from '@expo/vector-icons'
 import themes from '../../styles/theme'
 import AddFotoModal from '../../components/AddFotoModal'
 import { ScrollView } from 'react-native-gesture-handler'
-import ProfileHeader from '../../components/ProfileHeader'
+import NavigationHeader from '../../components/NavigationHeader'
 
 const EditProfile: React.FC = () => {
   const [modalVisible, setModalVisible] = useState(false)
   return (
     <Container>
-      <ProfileHeader isEdit={true} />
+      <NavigationHeader isEdit={true} >Alterar Perfil</NavigationHeader>
       <HexBubble source={require('../../assets/img/hex_bubble.png')} />
       <AddFotoModal
         statusBarTranslucent={true}
