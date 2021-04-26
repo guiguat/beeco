@@ -14,6 +14,7 @@ import {
 } from '@expo-google-fonts/saira'
 import Signup from './pages/Signup'
 import HomePage from './pages/HomePage'
+import EditProfile from './pages/EditProfile'
 
 export default function App() {
   const [archivoLoaded] = useArchivo({
@@ -30,7 +31,7 @@ export default function App() {
   }
   return (
     <ThemeProvider theme={themes}>
-      <HomePage />
+      <EditProfile />
     </ThemeProvider>
   )
 }
