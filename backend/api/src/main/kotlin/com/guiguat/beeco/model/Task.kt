@@ -18,12 +18,12 @@ class Task(
         @Column(name = "service_id") var id: UUID?,
         var name: String,
         var description: String,
-        @DecimalMin(value = "0.0", inclusive = false)
-        @Digits(integer=5, fraction=2)
+        @get:DecimalMin(value = "0.0", inclusive = false)
+        @get:Digits(integer=5, fraction=2)
         @Column(name = "min_price", nullable = false)
         var minPrice: BigDecimal,
-        @DecimalMin(value = "0.0", inclusive = false)
-        @Digits(integer=5, fraction=2)
+        @get:DecimalMin(value = "0.0", inclusive = false)
+        @get:Digits(integer=5, fraction=2)
         @Column(name = "max_price", nullable = false)
         var maxPrice: BigDecimal,
         var location: String,

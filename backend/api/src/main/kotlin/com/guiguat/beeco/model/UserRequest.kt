@@ -7,13 +7,14 @@ import javax.validation.constraints.NotBlank
 import javax.validation.constraints.Size
 
 class UserRequest(
-    @Size(min = 2, max = 20) var firstName: String,
-    @Size(min = 2, max = 40) var lastName: String,
-    @Email var email: String,
-    @NotBlank var password: String,
-    @NotBlank var photo: String,
-    @Size(min = 5, max = 20) var cellphone: String,
-    @Size(min = 5, max = 20) var phone: String?,
+    @get:Size(min = 2, max = 20) var firstName: String,
+    @get:Size(min = 2, max = 40) var lastName: String,
+    @get:NotBlank
+    @get:Email var email: String,
+    @get:NotBlank var password: String,
+    @get:NotBlank var photo: String,
+    @get:Size(min = 5, max = 20) var cellphone: String,
+    @get:Size(min = 5, max = 20) var phone: String?,
 ){
     fun toUserRepresentation(): UserRepresentation =
         UserRepresentation().apply {
