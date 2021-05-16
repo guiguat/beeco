@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    platform: postgres
+    url: jdbc:postgresql://localhost:5432/beeco
+    username: beeco
+    password: beeco
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate.ddl-auto: create-drop
+    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+  security.oauth2.resourceserver.jwt:
+    issuer-uri: http://localhost:8081/auth/realms/Beeco
+    jwk-set-uri: http://localhost:8081/auth/realms/Beeco/protocol/openid-connect/certs
+keycloak:
+  auth-server-url: http://localhost:8081/auth/
+  realm: Beeco
+  resource: springboot-client
+  credentials.secret: 3b10f3e4-c6d5-4075-a7fb-1c95d238cbff
+server.port: 8080
