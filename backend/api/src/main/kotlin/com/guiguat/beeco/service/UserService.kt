@@ -5,9 +5,9 @@ import com.guiguat.beeco.repository.UserInfoRepository
 import org.keycloak.admin.client.Keycloak
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
-import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Service
+import java.net.URI
 import java.util.*
 import javax.ws.rs.core.Response
 
@@ -21,7 +21,7 @@ class UserService @Autowired constructor(private val repo: UserInfoRepository, p
         if(response.status == statusCreated && uuid != null){
             request.id = uuid
             repo.save(request.toUserInfo())
-            return ResponseEntity.status(HttpStatus.CREATED).build()
+            return ResponseEntity.created(URI("localhost:8080/users/$uuid")).build()
         }
         return ResponseEntity.status(response.status)
             .body(Optional.ofNullable(response.readEntity(Map::class.java)))
