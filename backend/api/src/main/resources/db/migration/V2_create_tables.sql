@@ -1,7 +1,7 @@
  CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
 CREATE TABLE [IF NOT EXISTS] user_info(
-	user_id uuid DEFAULT uuid_generate_v4 (),
+	user_id varchar,
 	first_name varchar(20) NOT NULL,
     last_name varchar(40) NOT NULL,
 	email varchar NOT NULL,
@@ -21,8 +21,8 @@ CREATE TABLE [IF NOT EXISTS] task(
 	max_price decimal CONSTRAINT non_negative_max_price CHECK (max_price >= 0) NOT NULL,
 	location varchar(23),
 	status int NOT NULL,
-	freelancer_id UUID,
-	owner_id UUID REFERENCES user ON DELETE CASCADE,
+	freelancer_id varchar,
+	owner_id varchar REFERENCES user ON DELETE CASCADE,
 	CONSTRAINT invalid_min_max_price CHECK( max_price > min_price),
 	PRIMARY KEY(service_id)
 );

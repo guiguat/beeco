@@ -17,7 +17,9 @@ class UserService @Autowired constructor(private val repo: UserInfoRepository, p
     private val statusCreated = 201
     fun create(request: UserRequest): ResponseEntity<Any> {
         val response = createKeycloakUser(request)
-        if(response.status == statusCreated){
+        val uuid = extractUserId(response)
+        if(response.status == statusCreated && uuid != null){
+            request.id = uuid
             repo.save(request.toUserInfo())
             return ResponseEntity.status(HttpStatus.CREATED).build()
         }
@@ -32,5 +34,7 @@ class UserService @Autowired constructor(private val repo: UserInfoRepository, p
             .create(req.toUserRepresentation())
     }
 
-
+    private fun extractUserId(res: Response) =
+        (res.headers["location"]?.get(0) as String?)
+            ?.split("/users/")?.get(1)
 }

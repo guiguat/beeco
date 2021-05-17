@@ -2,11 +2,13 @@ package com.guiguat.beeco.model
 
 import org.keycloak.representations.idm.CredentialRepresentation
 import org.keycloak.representations.idm.UserRepresentation
+import java.util.*
 import javax.validation.constraints.Email
 import javax.validation.constraints.NotBlank
 import javax.validation.constraints.Size
 
 class UserRequest(
+    var id: String?,
     @get:Size(min = 2, max = 20) var firstName: String,
     @get:Size(min = 2, max = 40) var lastName: String,
     @get:NotBlank
@@ -19,6 +21,7 @@ class UserRequest(
     fun toUserRepresentation(): UserRepresentation =
         UserRepresentation().apply {
             isEnabled = true
+            id = this@UserRequest.id?.toString()
             username = this@UserRequest.email
             firstName = this@UserRequest.firstName
             lastName = this@UserRequest.lastName
@@ -29,6 +32,6 @@ class UserRequest(
                 value = this@UserRequest.password
             })}
     fun toUserInfo(): UserInfo =
-        UserInfo(null, firstName, lastName, email, photo, cellphone, phone, 0L, 0L)
+        UserInfo(id, firstName, lastName, email, photo, cellphone, phone, 0L, 0L)
 }
 

@@ -7,9 +7,7 @@ import javax.persistence.*
 @Entity
 class UserInfo(
         @Id
-        @GeneratedValue(generator = "UUID")
-        @GenericGenerator( name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-        @Column(name = "user_id") var id: UUID?,
+        @Column(name = "user_id") var id: String?,
         @Column(name = "first_name") var firstName: String,
         @Column(name = "last_name") var lastName: String,
         var email: String,
