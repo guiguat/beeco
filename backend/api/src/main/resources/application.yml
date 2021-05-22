@@ -3,20 +3,25 @@ spring:
   flyway.baselineOnMigrate: true
   datasource:
     platform: postgres
-    url: "jdbc:postgresql://\${POSTGRES_URL:localhost}:5432/beeco"
+    url: "jdbc:postgresql://localhost:5432/beeco"
     username: beeco
     password: beeco
   jpa:
     database: POSTGRESQL
     show-sql: true
-    #hibernate.ddl-auto: create-drop
+    hibernate.ddl-auto: create-drop
     database-platform: org.hibernate.dialect.PostgreSQL9Dialect
   security.oauth2.resourceserver.jwt:
-    issuer-uri: "http://\${KEYCLOAK_URL:localhost}:8081/auth/realms/Beeco"
-    jwk-set-uri: "http://\${KEYCLOAK_URL:localhost}:8081/auth/realms/Beeco/protocol/openid-connect/certs"
+    issuer-uri: "http://localhost:8081/auth/realms/Beeco"
+    jwk-set-uri: "http://localhost:8081/auth/realms/Beeco/protocol/openid-connect/certs"
 keycloak:
-  auth-server-url: "http://\${KEYCLOAK_URL:localhost}:8081/auth/"
+  auth-server-url: "http://localhost:8081/auth/"
   realm: Beeco
   resource: springboot-client
   credentials.secret: 272b7f79-0393-4dc2-a063-ecb6cf1cc948
 server.port: 8080
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
