@@ -1,4 +1,6 @@
 spring:
+  banner.location: classpath:banner/bloody.txt
+  flyway.baselineOnMigrate: true
   datasource:
     platform: postgres
     url: jdbc:postgresql://localhost:5432/beeco
@@ -7,7 +9,7 @@ spring:
   jpa:
     database: POSTGRESQL
     show-sql: true
-    hibernate.ddl-auto: create-drop
+    #hibernate.ddl-auto: create-drop
     database-platform: org.hibernate.dialect.PostgreSQL9Dialect
   security.oauth2.resourceserver.jwt:
     issuer-uri: http://localhost:8081/auth/realms/Beeco
@@ -16,5 +18,5 @@ keycloak:
   auth-server-url: http://localhost:8081/auth/
   realm: Beeco
   resource: springboot-client
-  credentials.secret: 3b10f3e4-c6d5-4075-a7fb-1c95d238cbff
+  credentials.secret: 272b7f79-0393-4dc2-a063-ecb6cf1cc948
 server.port: 8080

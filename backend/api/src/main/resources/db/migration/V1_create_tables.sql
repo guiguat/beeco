@@ -1,5 +1,6 @@
- CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
-
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+DROP TABLE user_info;
+DROP TABLE task;
 CREATE TABLE [IF NOT EXISTS] user_info(
 	user_id varchar,
 	first_name varchar(20) NOT NULL,

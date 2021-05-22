@@ -1,7 +1,6 @@
 package com.guiguat.beeco.config
 
 import org.keycloak.OAuth2Constants.CLIENT_CREDENTIALS
-import org.keycloak.OAuth2Constants.PASSWORD
 import org.keycloak.admin.client.Keycloak
 import org.keycloak.admin.client.KeycloakBuilder
 import org.springframework.beans.factory.annotation.Value

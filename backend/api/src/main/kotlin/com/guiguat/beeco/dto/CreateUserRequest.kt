@@ -1,13 +1,13 @@
-package com.guiguat.beeco.model
+package com.guiguat.beeco.dto
 
+import com.guiguat.beeco.model.UserInfo
 import org.keycloak.representations.idm.CredentialRepresentation
 import org.keycloak.representations.idm.UserRepresentation
-import java.util.*
 import javax.validation.constraints.Email
 import javax.validation.constraints.NotBlank
 import javax.validation.constraints.Size
 
-class UserRequest(
+class CreateUserRequest(
     var id: String?,
     @get:Size(min = 2, max = 20) var firstName: String,
     @get:Size(min = 2, max = 40) var lastName: String,
@@ -21,15 +21,15 @@ class UserRequest(
     fun toUserRepresentation(): UserRepresentation =
         UserRepresentation().apply {
             isEnabled = true
-            id = this@UserRequest.id?.toString()
-            username = this@UserRequest.email
-            firstName = this@UserRequest.firstName
-            lastName = this@UserRequest.lastName
-            email = this@UserRequest.email
+            id = this@CreateUserRequest.id?.toString()
+            username = this@CreateUserRequest.email
+            firstName = this@CreateUserRequest.firstName
+            lastName = this@CreateUserRequest.lastName
+            email = this@CreateUserRequest.email
             credentials = listOf(CredentialRepresentation().apply {
                 isTemporary = false
                 type = CredentialRepresentation.PASSWORD
-                value = this@UserRequest.password
+                value = this@CreateUserRequest.password
             })}
     fun toUserInfo(): UserInfo =
         UserInfo(id, firstName, lastName, email, photo, cellphone, phone, 0L, 0L)

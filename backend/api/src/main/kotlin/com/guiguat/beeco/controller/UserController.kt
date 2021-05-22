@@ -1,22 +1,35 @@
 package com.guiguat.beeco.controller
 
-import com.guiguat.beeco.model.UserRequest
+import com.guiguat.beeco.dto.CreateUserRequest
+import com.guiguat.beeco.dto.UpdateUserRequest
+import com.guiguat.beeco.model.UserInfo
 import com.guiguat.beeco.service.UserService
+import com.guiguat.beeco.utils.SecurityUtils.protected
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
+import org.springframework.http.ResponseEntity.ok
+import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.stereotype.Controller
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.*
 import javax.validation.Valid
 
 @Controller
 @RequestMapping("/users")
 class UserController @Autowired constructor(private val service: UserService) {
-    @PostMapping
-    fun createUser(@Valid @RequestBody user: UserRequest): ResponseEntity<Any> = service.create(user)
+    @GetMapping("/{id}")
+    fun index(@PathVariable id: String,): ResponseEntity<Any> {
+        val user = service.find(id)
+        return if(user.isPresent) ok(user) else ResponseEntity.notFound().build()
+    }
 
-    @GetMapping
-    fun protectedResource() = ResponseEntity.ok("Hello world")
+    @PostMapping
+    fun create(@Valid @RequestBody user: CreateUserRequest): ResponseEntity<Any> = service.create(user)
+
+    @PatchMapping("/{id}")
+    fun update(@Valid @RequestBody user: UpdateUserRequest,
+               @PathVariable id: String,): ResponseEntity<UserInfo> {
+        return protected(id){
+            ok(service.update(user, it))
+        }
+    }
 }
