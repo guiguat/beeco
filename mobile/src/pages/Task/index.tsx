@@ -22,8 +22,9 @@ import {
 } from './styles'
 import themes from '../../styles/theme'
 import { TouchableOpacity } from 'react-native'
+import { ScreenProp } from '../../utils/navigation'
 
-const Task: React.FC = ({ navigation }) => {
+const Task: React.FC<ScreenProp> = ({ navigation }) => {
   const tags = ['Design', 'LogoDesign', 'Creativity']
   return (
     <StyledScrollView showsVerticalScrollIndicator={false}>
@@ -70,7 +71,7 @@ const Task: React.FC = ({ navigation }) => {
         <HeadlineLight>Contato</HeadlineLight>
         <Row style={{ marginTop: 20 }}>
           <TouchableOpacity
-            onPress={() => navigation.navigate(themes.nav.otherUser)}
+            onPress={() => navigation.navigate(themes.nav.profile)}
           >
             <StyledImage
               source={{

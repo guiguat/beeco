@@ -18,12 +18,11 @@ import {
 
 import Signup from './pages/Signup'
 import HomePage from './pages/HomePage'
-import EditProfile from './pages/EditProfile'
 import Task from './pages/Task'
-import OtherUserProfile from './pages/OtherUserProfile'
 import Login from './pages/Login'
 import Startup from './pages/Startup'
-import MyProfile from './pages/MyProfile'
+import Profile from './pages/Profile'
+import EditProfile from './pages/EditProfile'
 
 const Pilha = createStackNavigator()
 
@@ -52,13 +51,9 @@ export default function App() {
           <Pilha.Screen name={themes.nav.login} component={Login} />
           <Pilha.Screen name={themes.nav.signup} component={Signup} />
           <Pilha.Screen name={themes.nav.home} component={HomePage} />
-          <Pilha.Screen name={themes.nav.myProfile} component={MyProfile} />
+          <Pilha.Screen name={themes.nav.profile} component={Profile} />
           <Pilha.Screen name={themes.nav.editProfile} component={EditProfile} />
           <Pilha.Screen name={themes.nav.task} component={Task} />
-          <Pilha.Screen
-            name={themes.nav.otherUser}
-            component={OtherUserProfile}
-          />
         </Pilha.Navigator>
       </ThemeProvider>
     </NavigationContainer>

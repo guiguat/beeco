@@ -13,8 +13,9 @@ import OrderByBtn from '../../components/OrderByBtn'
 import TaskCard, { taskCardInfo } from '../../components/TaskCard'
 import { FlatList } from 'react-native-gesture-handler'
 import themes from '../../styles/theme'
+import { ScreenProp } from '../../utils/navigation'
 
-const HomePage: React.FC = ({ navigation }) => {
+const HomePage: React.FC<ScreenProp> = ({ navigation }) => {
   const cardsArray: taskCardInfo[] = [
     {
       title: 'Fazer uma logo para mim',
@@ -65,7 +66,9 @@ const HomePage: React.FC = ({ navigation }) => {
       >
         <Image source={require('../../assets/img/bee_logo.png')} />
         <TouchableOpacity
-          onPress={() => navigation.navigate(themes.nav.myProfile)}
+          onPress={() =>
+            navigation.navigate(themes.nav.profile, { editable: true })
+          }
         >
           <StyledBackGroundImage
             source={require('../../assets/img/hard_code_profile_pic.png')}

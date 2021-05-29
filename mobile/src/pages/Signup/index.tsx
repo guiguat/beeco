@@ -14,8 +14,9 @@ import { Feather } from '@expo/vector-icons'
 import themes from '../../styles/theme'
 import AddFotoModal from '../../components/AddFotoModal'
 import { ScrollView } from 'react-native-gesture-handler'
+import { ScreenProp } from '../../utils/navigation'
 
-const Signup: React.FC = ({ navigation }) => {
+const Signup: React.FC<ScreenProp> = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(false)
   return (
     <Container>

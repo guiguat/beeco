@@ -7,9 +7,10 @@ import { Input } from '../../components/FormField/styles'
 import StartupHeader from '../../components/StartupHeader'
 import { BodyLight } from '../../styles/fonts'
 import themes from '../../styles/theme'
+import { ScreenProp } from '../../utils/navigation'
 import { Container, Content, LoginForm } from './styles'
 
-const Login: React.FC = ({ navigation }) => {
+const Login: React.FC<ScreenProp> = ({ navigation }) => {
   return (
     <Container>
       <StartupHeader display="LOGIN" />

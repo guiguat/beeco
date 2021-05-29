@@ -3,6 +3,7 @@ import styled from '../../styles/styled-components'
 export const StyledView = styled.SafeAreaView`
   flex: 1;
   padding: ${(props) => props.theme.padding + ' ' + props.theme.padding} 0;
+  background-color: ${(props) => props.theme.colors.white};
 `
 
 export const Row = styled.View`

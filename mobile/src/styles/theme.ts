@@ -16,7 +16,8 @@ const themes = {
     lightest: '#FFFFFF',
     darkGrey: '#1e2021',
     warningRed: '#FF3232',
-    lightOrange: '#FFF2CB',
+    lightOrange: '#FFE9A9',
+    lighterYellow: '#FFF2CB',
     green: '#BCF285',
     lightBrown: '#FFF2CB',
   },
@@ -25,10 +26,9 @@ const themes = {
     login: 'LoginPage',
     signup: 'SignupPage',
     home: 'HomePage',
-    myProfile: 'MyProfilePage',
+    profile: 'ProfilePage',
     editProfile: 'EditProfilePage',
     task: 'TaskPage',
-    otherUser: 'OtherUserProfilePage',
   },
 }
 export type MyTheme = typeof themes
