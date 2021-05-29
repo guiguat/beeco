@@ -1,7 +1,8 @@
 import DefaultFormField from '../../components/FormField'
 import styled from '../../styles/styled-components'
-export const Container = styled.ScrollView`
+export const Container = styled.View`
   flex: 1;
+  padding: ${(props) => props.theme.padding};
   background-color: ${(props) => props.theme.colors.white};
 `
 export const FormView = styled.View`
@@ -12,7 +13,6 @@ export const FormView = styled.View`
 
 export const Content = styled.View`
   flex: 1;
-  padding: ${(props) => props.theme.padding} ${(props) => props.theme.padding} 0;
 `
 
 export const FormRow = styled.View`

@@ -14,8 +14,9 @@ import { Feather } from '@expo/vector-icons'
 import themes from '../../styles/theme'
 import AddFotoModal from '../../components/AddFotoModal'
 import { ScrollView } from 'react-native-gesture-handler'
+import { ScreenProp } from '../../utils/navigation'
 
-const Signup: React.FC = () => {
+const Signup: React.FC<ScreenProp> = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(false)
   return (
     <Container>
@@ -49,7 +50,12 @@ const Signup: React.FC = () => {
                 <Input autoCompleteType="tel" keyboardType="phone-pad" />
               </FormField>
             </FormRow>
-            <Button style={{ marginBottom: 20 }}>Salvar</Button>
+            <Button
+              style={{ marginBottom: 20 }}
+              onPress={() => navigation.navigate(themes.nav.home)}
+            >
+              Salvar
+            </Button>
           </FormView>
         </Content>
       </ScrollView>

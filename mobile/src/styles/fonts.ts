@@ -16,7 +16,7 @@ export const HeadlineLight = styled.Text<FontProps>`
   color: ${(props) => props.color ?? themes.colors.grey};
 `
 export const TitleHeavy = styled.Text<FontProps>`
-    font-family: Saira_700Bold';
+    font-family: 'Saira_700Bold';
     font-size: 20px;
     line-height: 28px;
     color: ${(props) => props.color ?? themes.colors.grey}

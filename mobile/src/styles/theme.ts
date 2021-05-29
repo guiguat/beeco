@@ -6,6 +6,7 @@ const themes = {
     white: '#fafafa',
     lightYellow: '#FFE235',
     darkYellow: '#CC9F02',
+    darkerYellow: '#AD8700',
     black: '#221D1D',
     lightBlue: '#06ABEC',
     blue: '#337AB7',
@@ -15,9 +16,20 @@ const themes = {
     lightest: '#FFFFFF',
     darkGrey: '#1e2021',
     warningRed: '#FF3232',
-    lightOrange: '#FFF2CB',
-    green: "#BCF285"
-  }
+    lightOrange: '#FFE9A9',
+    lighterYellow: '#FFF2CB',
+    green: '#BCF285',
+    lightBrown: '#FFF2CB',
+  },
+  nav: {
+    startup: 'StartupPage',
+    login: 'LoginPage',
+    signup: 'SignupPage',
+    home: 'HomePage',
+    profile: 'ProfilePage',
+    editProfile: 'EditProfilePage',
+    task: 'TaskPage',
+  },
 }
 export type MyTheme = typeof themes
 export default themes
