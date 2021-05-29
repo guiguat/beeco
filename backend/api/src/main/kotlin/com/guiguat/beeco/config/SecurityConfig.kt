@@ -15,6 +15,6 @@ class SecurityConfig: WebSecurityConfigurerAdapter() {
                 it.antMatchers(HttpMethod.POST, "/users").permitAll()
                     .anyRequest().authenticated()
             }
-            .oauth2ResourceServer { it.jwt() }
+            .oauth2ResourceServer().jwt()
     }
 }

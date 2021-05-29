@@ -17,12 +17,13 @@ import javax.ws.rs.core.Response
 class UserService @Autowired constructor(private val repo: UserInfoRepository,
                                          private val keycloak: KeycloakUserService){
     private val statusCreated = 201
-    fun create(request: CreateUserRequest): ResponseEntity<Any> {
-        val response = keycloak.createKeycloakUser(request.toUserRepresentation())
+    fun create(userReq: CreateUserRequest): ResponseEntity<Any> {
+        val response = keycloak.createKeycloakUser(userReq.toUserRepresentation())
         val uuid = extractUserId(response)
         if(response.status == statusCreated && uuid != null){
-            request.id = uuid
-            repo.save(request.toUserInfo())
+            val user = userReq.toUserInfo()
+            user.id = uuid
+            repo.save(user)
             return ResponseEntity.created(URI("/users/$uuid")).build()
         }
         return ResponseEntity.status(response.status)

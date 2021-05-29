@@ -20,18 +20,15 @@ class GlobalExceptionHandler : ResponseEntityExceptionHandler() {
         headers: HttpHeaders,
         status: HttpStatus,
         request: WebRequest
-    ): ResponseEntity<Any> =
-        ResponseEntity.status(status).body(ApiError(status, message = "Invalid parameters"))
+    ): ResponseEntity<Any> = ResponseEntity.status(status).body(ApiError(status, message = "Invalid parameters"))
 
     override fun handleMethodArgumentNotValid(
         ex: MethodArgumentNotValidException,
         headers: HttpHeaders,
         status: HttpStatus,
         request: WebRequest
-    ): ResponseEntity<Any>{
-        return badRequest().body(
+    ): ResponseEntity<Any> = badRequest().body(
             ValidationError(ex.bindingResult.allErrors.map {  ValidationError.fromFieldError(it as FieldError)  }))
-    }
 
     @ExceptionHandler(ApiError::class)
     fun handleAllApiError(

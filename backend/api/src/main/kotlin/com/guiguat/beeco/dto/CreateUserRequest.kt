@@ -8,7 +8,6 @@ import javax.validation.constraints.NotBlank
 import javax.validation.constraints.Size
 
 class CreateUserRequest(
-    var id: String?,
     @get:Size(min = 2, max = 20) var firstName: String,
     @get:Size(min = 2, max = 40) var lastName: String,
     @get:NotBlank
@@ -21,7 +20,7 @@ class CreateUserRequest(
     fun toUserRepresentation(): UserRepresentation =
         UserRepresentation().apply {
             isEnabled = true
-            id = this@CreateUserRequest.id?.toString()
+            id = null
             username = this@CreateUserRequest.email
             firstName = this@CreateUserRequest.firstName
             lastName = this@CreateUserRequest.lastName
@@ -32,6 +31,6 @@ class CreateUserRequest(
                 value = this@CreateUserRequest.password
             })}
     fun toUserInfo(): UserInfo =
-        UserInfo(id, firstName, lastName, email, photo, cellphone, phone, 0L, 0L)
+        UserInfo(null, firstName, lastName, email, photo, cellphone, phone, 0L, 0L)
 }
 
