@@ -1,13 +1,20 @@
 import React from 'react'
 import { Image, TouchableOpacity } from 'react-native'
-import { StyledView, Row, HexBubble, TextWrapper, Input, StyledBackGroundImage } from './styles'
+import {
+  StyledView,
+  Row,
+  HexBubble,
+  TextWrapper,
+  Input,
+  StyledBackGroundImage,
+} from './styles'
 import { HeadlineLight, CaptionLight, SmallLight } from '../../styles/fonts'
 import OrderByBtn from '../../components/OrderByBtn'
 import TaskCard, { taskCardInfo } from '../../components/TaskCard'
 import { FlatList } from 'react-native-gesture-handler'
 import themes from '../../styles/theme'
 
-const HomePage: React.FC = ({navigation}) => {
+const HomePage: React.FC = ({ navigation }) => {
   const cardsArray: taskCardInfo[] = [
     {
       title: 'Fazer uma logo para mim',
@@ -53,18 +60,25 @@ const HomePage: React.FC = ({navigation}) => {
   return (
     <StyledView>
       <HexBubble source={require('../../assets/img/hex_bubble.png')} />
-      <Row style={{justifyContent: "space-between", alignItems:"flex-start"}}>
+      <Row
+        style={{ justifyContent: 'space-between', alignItems: 'flex-start' }}
+      >
         <Image source={require('../../assets/img/bee_logo.png')} />
-        <TouchableOpacity onPress={() => navigation.navigate(themes.navSnippets.myProfile)}>
-          <StyledBackGroundImage source = {require('../../assets/img/hard_code_profile_pic.png')} 
-          style={{  width: 45, height: 45}}>
-            <StyledBackGroundImage source={require('../../assets/img/rating_star.png')} 
-            style={{  width: 22, height: 21, marginLeft: 25, marginTop: 25}}> 
+        <TouchableOpacity
+          onPress={() => navigation.navigate(themes.nav.myProfile)}
+        >
+          <StyledBackGroundImage
+            source={require('../../assets/img/hard_code_profile_pic.png')}
+            style={{ width: 45, height: 45 }}
+          >
+            <StyledBackGroundImage
+              source={require('../../assets/img/rating_star.png')}
+              style={{ width: 22, height: 21, marginLeft: 25, marginTop: 25 }}
+            >
               <SmallLight>5</SmallLight>
-            </StyledBackGroundImage>  
+            </StyledBackGroundImage>
           </StyledBackGroundImage>
         </TouchableOpacity>
-        
       </Row>
       <TextWrapper>
         <HeadlineLight>Encontre tarefas da nossa colmeia</HeadlineLight>
@@ -78,7 +92,10 @@ const HomePage: React.FC = ({navigation}) => {
       <FlatList
         data={cardsArray}
         renderItem={({ item }: { item: taskCardInfo }) => (
-          <TaskCard info={item} onPress={() => navigation.navigate(themes.navSnippets.task)}/>
+          <TaskCard
+            info={item}
+            onPress={() => navigation.navigate(themes.nav.task)}
+          />
         )}
         keyExtractor={(item: taskCardInfo, index: number) => index.toString()}
         contentContainerStyle={{

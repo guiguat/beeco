@@ -9,7 +9,7 @@ import { BodyLight } from '../../styles/fonts'
 import themes from '../../styles/theme'
 import { Container, Content, LoginForm } from './styles'
 
-const Login: React.FC = ({navigation}) => {
+const Login: React.FC = ({ navigation }) => {
   return (
     <Container>
       <StartupHeader display="LOGIN" />
@@ -25,7 +25,7 @@ const Login: React.FC = ({navigation}) => {
           >
             <Input secureTextEntry={true} />
           </FormField>
-          <Button onPress={() => navigation.navigate(themes.navSnippets.home)}>
+          <Button onPress={() => navigation.navigate(themes.nav.home)}>
             Entrar
           </Button>
         </LoginForm>
@@ -34,7 +34,8 @@ const Login: React.FC = ({navigation}) => {
             Não possui uma conta?{' '}
           </BodyLight>
           <TouchableOpacity
-          onPress={() => navigation.navigate(themes.navSnippets.signup)}>
+            onPress={() => navigation.navigate(themes.nav.signup)}
+          >
             <BodyLight color={themes.colors.black}>Cadastre-se</BodyLight>
           </TouchableOpacity>
         </View>

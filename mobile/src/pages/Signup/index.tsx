@@ -15,7 +15,7 @@ import themes from '../../styles/theme'
 import AddFotoModal from '../../components/AddFotoModal'
 import { ScrollView } from 'react-native-gesture-handler'
 
-const Signup: React.FC = ({navigation}) => {
+const Signup: React.FC = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(false)
   return (
     <Container>
@@ -49,9 +49,10 @@ const Signup: React.FC = ({navigation}) => {
                 <Input autoCompleteType="tel" keyboardType="phone-pad" />
               </FormField>
             </FormRow>
-            <Button 
-                style={{ marginBottom: 20 }}
-                onPress={() => navigation.navigate(themes.navSnippets.home)}>
+            <Button
+              style={{ marginBottom: 20 }}
+              onPress={() => navigation.navigate(themes.nav.home)}
+            >
               Salvar
             </Button>
           </FormView>
