@@ -20,7 +20,7 @@ import {
 import { ScreenProp } from '../../utils/navigation'
 
 const Profile: React.FC<ScreenProp> = ({ route }) => {
-  const { editable = false } = route.params
+  const editable = route.params?.editable ?? false
   return (
     <Container>
       <NavigationHeader isEdit={editable}>Perfil</NavigationHeader>
