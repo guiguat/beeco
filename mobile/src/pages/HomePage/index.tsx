@@ -5,8 +5,9 @@ import { HeadlineLight, CaptionLight, SmallLight } from '../../styles/fonts'
 import OrderByBtn from '../../components/OrderByBtn'
 import TaskCard, { taskCardInfo } from '../../components/TaskCard'
 import { FlatList } from 'react-native-gesture-handler'
+import themes from '../../styles/theme'
 
-const HomePage: React.FC = () => {
+const HomePage: React.FC = ({navigation}) => {
   const cardsArray: taskCardInfo[] = [
     {
       title: 'Fazer uma logo para mim',
@@ -54,7 +55,7 @@ const HomePage: React.FC = () => {
       <HexBubble source={require('../../assets/img/hex_bubble.png')} />
       <Row style={{justifyContent: "space-between", alignItems:"flex-start"}}>
         <Image source={require('../../assets/img/bee_logo.png')} />
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate(themes.navSnippets.myProfile)}>
           <StyledBackGroundImage source = {require('../../assets/img/hard_code_profile_pic.png')} 
           style={{  width: 45, height: 45}}>
             <StyledBackGroundImage source={require('../../assets/img/rating_star.png')} 
@@ -77,7 +78,7 @@ const HomePage: React.FC = () => {
       <FlatList
         data={cardsArray}
         renderItem={({ item }: { item: taskCardInfo }) => (
-          <TaskCard info={item} />
+          <TaskCard info={item} onPress={() => navigation.navigate(themes.navSnippets.task)}/>
         )}
         keyExtractor={(item: taskCardInfo, index: number) => index.toString()}
         contentContainerStyle={{

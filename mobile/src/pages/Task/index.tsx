@@ -12,8 +12,9 @@ import { HexBubble,
     StyledImage,
     StyledScrollView } from './styles';
 import themes from '../../styles/theme'
+import { TouchableOpacity } from 'react-native';
 
-const Task: React.FC = () => {
+const Task: React.FC = ({navigation}) => {
     const tags = ['Design', 'LogoDesign', 'Creativity'];
     return(
         <StyledScrollView showsVerticalScrollIndicator={false}>
@@ -49,7 +50,9 @@ const Task: React.FC = () => {
                 <ContactSection>
                     <HeadlineLight>Contato</HeadlineLight>
                     <Row style={{marginTop: 20}}>
-                        <StyledImage source = {{uri:"https://avatars.githubusercontent.com/u/67172695?v=4"}}/> 
+                        <TouchableOpacity onPress={() => navigation.navigate(themes.navSnippets.otherUser)}>
+                            <StyledImage source = {{uri:"https://avatars.githubusercontent.com/u/67172695?v=4"}}/> 
+                        </TouchableOpacity>
                         <ContactInfo>
                             <BodyHeavy style={{marginBottom: 4}}>Iuri Salles</BodyHeavy>
                             <>

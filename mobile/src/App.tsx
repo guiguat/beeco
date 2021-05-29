@@ -45,8 +45,15 @@ export default function App() {
   return (
     <NavigationContainer>
       <ThemeProvider theme={themes}>
-        <Pilha.Navigator>
-          <Pilha.Screen name="HomePage" component={HomePage}/>
+        <Pilha.Navigator initialRouteName={themes.navSnippets.startup} screenOptions={{ headerShown: false }}>
+          <Pilha.Screen name={themes.navSnippets.startup} component={Startup}/>
+          <Pilha.Screen name={themes.navSnippets.login} component={Login}/>
+          <Pilha.Screen name={themes.navSnippets.signup} component={Signup}/>
+          <Pilha.Screen name={themes.navSnippets.home} component={HomePage}/>
+          <Pilha.Screen name={themes.navSnippets.myProfile} component={MyProfile}/>
+          <Pilha.Screen name={themes.navSnippets.editProfile} component={EditProfile}/>
+          <Pilha.Screen name={themes.navSnippets.task} component={Task}/>
+          <Pilha.Screen name={themes.navSnippets.otherUser} component={OtherUserProfile}/>
         </Pilha.Navigator>
       </ThemeProvider>
     </NavigationContainer>

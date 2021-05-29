@@ -1,5 +1,6 @@
 import React from 'react'
-import { View } from 'react-native'
+import { Touchable, View } from 'react-native'
+import { TouchableOpacity } from 'react-native-gesture-handler'
 import Button from '../../components/Button'
 import FormField from '../../components/FormField'
 import { Input } from '../../components/FormField/styles'
@@ -8,7 +9,7 @@ import { BodyLight } from '../../styles/fonts'
 import themes from '../../styles/theme'
 import { Container, Content, LoginForm } from './styles'
 
-const Login: React.FC = () => {
+const Login: React.FC = ({navigation}) => {
   return (
     <Container>
       <StartupHeader display="LOGIN" />
@@ -24,13 +25,18 @@ const Login: React.FC = () => {
           >
             <Input secureTextEntry={true} />
           </FormField>
-          <Button>Entrar</Button>
+          <Button onPress={() => navigation.navigate(themes.navSnippets.home)}>
+            Entrar
+          </Button>
         </LoginForm>
         <View style={{ flexDirection: 'row' }}>
           <BodyLight color={themes.colors.lightGrey}>
             Não possui uma conta?{' '}
           </BodyLight>
-          <BodyLight color={themes.colors.black}>Cadastre-se</BodyLight>
+          <TouchableOpacity
+          onPress={() => navigation.navigate(themes.navSnippets.signup)}>
+            <BodyLight color={themes.colors.black}>Cadastre-se</BodyLight>
+          </TouchableOpacity>
         </View>
       </Content>
     </Container>

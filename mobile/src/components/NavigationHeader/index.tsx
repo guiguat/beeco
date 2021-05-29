@@ -4,12 +4,14 @@ import Button from '../Button'
 import { TitleLight } from '../../styles/fonts';
 import { StyledHeader, Row} from './styles';
 import themes from '../../styles/theme'
+import { useNavigation } from '@react-navigation/native';
 
 interface Props {
     isEdit?: boolean
 }
 
 const NavigationHeader: React.FC<Props> = ({isEdit, children}) => {
+    const navigation = useNavigation();
     return(
         <StyledHeader>
             <Row>
@@ -23,6 +25,10 @@ const NavigationHeader: React.FC<Props> = ({isEdit, children}) => {
                     content={
                         <Feather name="arrow-left" size={16} color={themes.colors.grey} />
                     }
+                    onPress={() => {
+                        navigation.goBack();
+                    }}
+                    
                 />
                 <TitleLight>{children}</TitleLight>
             </Row>
@@ -34,7 +40,10 @@ const NavigationHeader: React.FC<Props> = ({isEdit, children}) => {
                     }}
                     content={
                         <Octicons name="pencil" size={16} color={themes.colors.lightGrey} />      
-                    }/> : null}
+                    }
+                    onPress={() => {
+                        navigation.navigate(themes.navSnippets.editProfile);
+                    }}/> : null}
         </StyledHeader>
     );
 }

@@ -13,7 +13,7 @@ export const HexBubble = styled.Image`
   top: -16px;
   left: -56px;
 `
-export const WellcomeMessage = styled(TitleLight)`
+export const WelcomeMessage = styled(TitleLight)`
   text-align: center;
   margin: 38px 0 36px;
 `

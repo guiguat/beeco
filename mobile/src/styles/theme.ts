@@ -19,6 +19,16 @@ const themes = {
     lightOrange: '#FFF2CB',
     green: "#BCF285",
     lightBrown: "#FFF2CB"
+  },
+  navSnippets:{
+    startup: "StartupPage",
+    login: "LoginPage",
+    signup: "SignupPage",
+    home: "HomePage",
+    myProfile: "MyProfilePage",
+    editProfile: "EditProfilePage",
+    task: "TaskPage",
+    otherUser: "OtherUserProfilePage"
   }
 }
 export type MyTheme = typeof themes

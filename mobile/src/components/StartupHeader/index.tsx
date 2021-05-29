@@ -4,11 +4,14 @@ import themes from '../../styles/theme'
 import { Feather } from '@expo/vector-icons'
 import { DisplayHeavy, TitleLight } from '../../styles/fonts'
 import { Bee, Container, Content, HexBubble, TextWrapper } from './styles'
+import { useNavigation } from '@react-navigation/native';
 
 const StartupHeader: React.FC<{
   display: 'LOGIN' | 'CADASTRO'
   backRoute?: string
 }> = ({ display }) => {
+  const navigation = useNavigation();
+
   return (
     <Container>
       <HexBubble source={require('../../assets/img/hex_bubble.png')} />
@@ -28,6 +31,9 @@ const StartupHeader: React.FC<{
           content={
             <Feather name="arrow-left" size={16} color={themes.colors.grey} />
           }
+          onPress={() => {
+            navigation.goBack();
+          }}
         />
       </Content>
     </Container>
