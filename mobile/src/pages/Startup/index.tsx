@@ -3,8 +3,9 @@ import { Container, HexBubble, WelcomeMessage } from './styles'
 import { Image } from 'react-native'
 import themes from '../../styles/theme'
 import Button from '../../components/Button'
+import { ScreenProp } from '../../utils/navigation'
 
-const StartupPage: React.FC = ({ navigation }) => {
+const StartupPage: React.FC<ScreenProp> = ({ navigation }) => {
   return (
     <Container>
       <HexBubble

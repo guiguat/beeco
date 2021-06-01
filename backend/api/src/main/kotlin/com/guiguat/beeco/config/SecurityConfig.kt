@@ -5,16 +5,26 @@ import org.springframework.http.HttpMethod
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
+import org.springframework.security.config.web.servlet.invoke
+import org.springframework.security.oauth2.server.resource.authentication.JwtIssuerAuthenticationManagerResolver
 
 @Configuration
 @EnableWebSecurity
 class SecurityConfig: WebSecurityConfigurerAdapter() {
+    val customAuthenticationManagerResolver = JwtIssuerAuthenticationManagerResolver(
+        "http://localhost:8081/auth/realms/Beeco",
+        "http://192.168.15.12:8081/auth/realms/Beeco")
+    //TODO: substituir seu ip local na url para usar o mobile
     override fun configure(http: HttpSecurity?) {
-        http!!.csrf().disable()
-            .authorizeRequests {
-                it.antMatchers(HttpMethod.POST, "/users").permitAll()
-                    .anyRequest().authenticated()
+        http!!{
+            csrf{ disable() }
+            authorizeRequests {
+                authorize(HttpMethod.POST, "/users", permitAll)
+                authorize(anyRequest, authenticated)
             }
-            .oauth2ResourceServer().jwt()
+            oauth2ResourceServer{
+                authenticationManagerResolver = customAuthenticationManagerResolver
+            }
+        }
     }
 }

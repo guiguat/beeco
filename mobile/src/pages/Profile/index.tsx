@@ -18,20 +18,22 @@ import {
   Row,
 } from './styles'
 import { ScreenProp } from '../../utils/navigation'
+import useAuth from '../../hooks/useAuth'
 
 const Profile: React.FC<ScreenProp> = ({ route }) => {
   const editable = route.params?.editable ?? false
+  const { user } = useAuth()
   return (
     <Container>
       <NavigationHeader isEdit={editable}>Perfil</NavigationHeader>
       <PicNameNBio>
         <StyledImage
           source={{
-            uri: 'https://avatars.githubusercontent.com/u/43298753?v=4',
+            uri: user?.photo,
           }}
         />
         <TitleHeavy style={{ marginTop: 18, marginBottom: 4 }}>
-          Guilherme Guatura
+          {`${user?.firstName} ${user?.lastName}`}
         </TitleHeavy>
         <CaptionLight style={{ maxWidth: 290, textAlign: 'center' }}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Molestie enim
@@ -41,7 +43,7 @@ const Profile: React.FC<ScreenProp> = ({ route }) => {
       </PicNameNBio>
       <MetrixSection>
         <MetrixCard type="rating" style={{ marginRight: 10 }}>
-          4.6
+          {user?.ratingCount !== 0 ? user!.ratingSum / user!.ratingCount : 0}
         </MetrixCard>
         <MetrixCard type="tasks" style={{ marginRight: 10 }}>
           300
@@ -53,23 +55,32 @@ const Profile: React.FC<ScreenProp> = ({ route }) => {
         <Row>
           <Feather name="mail" size={18} color={theme.colors.lightGrey} />
           <BodyLight color={theme.colors.lightGrey} style={{ marginLeft: 10 }}>
-            joseDinossauro@gmail.com
+            {user?.email}
           </BodyLight>
         </Row>
         <Row style={{ marginTop: 10 }}>
           <Feather name="phone" size={18} color={theme.colors.lightGrey} />
           <BodyLight color={theme.colors.lightGrey} style={{ marginLeft: 10 }}>
-            (19) 999199293
+            {user?.cellphone}
           </BodyLight>
-          <Feather
-            name="phone"
-            size={18}
-            color={theme.colors.lightGrey}
-            style={{ marginLeft: 10 }}
-          />
-          <BodyLight color={theme.colors.lightGrey} style={{ marginLeft: 10 }}>
-            (19) 999199293
-          </BodyLight>
+          {user?.phone ? (
+            <Feather>
+              <Feather
+                name="phone"
+                size={18}
+                color={theme.colors.lightGrey}
+                style={{ marginLeft: 10 }}
+              />
+              <BodyLight
+                color={theme.colors.lightGrey}
+                style={{ marginLeft: 10 }}
+              >
+                {user.phone}
+              </BodyLight>
+            </Feather>
+          ) : (
+            <></>
+          )}
         </Row>
       </ContactSection>
     </Container>

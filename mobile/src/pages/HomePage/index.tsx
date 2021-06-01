@@ -7,6 +7,7 @@ import {
   TextWrapper,
   Input,
   StyledBackGroundImage,
+  StyledBackGroundProfile,
 } from './styles'
 import { HeadlineLight, CaptionLight, SmallLight } from '../../styles/fonts'
 import OrderByBtn from '../../components/OrderByBtn'
@@ -14,8 +15,10 @@ import TaskCard, { taskCardInfo } from '../../components/TaskCard'
 import { FlatList } from 'react-native-gesture-handler'
 import themes from '../../styles/theme'
 import { ScreenProp } from '../../utils/navigation'
+import useAuth from '../../hooks/useAuth'
 
 const HomePage: React.FC<ScreenProp> = ({ navigation }) => {
+  const { user } = useAuth()
   const cardsArray: taskCardInfo[] = [
     {
       title: 'Fazer uma logo para mim',
@@ -70,17 +73,29 @@ const HomePage: React.FC<ScreenProp> = ({ navigation }) => {
             navigation.navigate(themes.nav.profile, { editable: true })
           }
         >
-          <StyledBackGroundImage
-            source={require('../../assets/img/hard_code_profile_pic.png')}
-            style={{ width: 45, height: 45 }}
+          <StyledBackGroundProfile
+            style={{ width: 45, height: 45, borderRadius: 24 }}
           >
+            <Image
+              style={{
+                position: 'absolute',
+                width: 45,
+                height: 45,
+                borderRadius: 24,
+              }}
+              source={{ uri: user?.photo }}
+            ></Image>
             <StyledBackGroundImage
               source={require('../../assets/img/rating_star.png')}
               style={{ width: 22, height: 21, marginLeft: 25, marginTop: 25 }}
             >
-              <SmallLight>5</SmallLight>
+              <SmallLight>
+                {user?.ratingCount !== 0
+                  ? user!.ratingSum / user!.ratingCount
+                  : 0}
+              </SmallLight>
             </StyledBackGroundImage>
-          </StyledBackGroundImage>
+          </StyledBackGroundProfile>
         </TouchableOpacity>
       </Row>
       <TextWrapper>

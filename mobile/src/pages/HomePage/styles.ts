@@ -45,3 +45,8 @@ export const StyledBackGroundImage = styled.ImageBackground`
   justify-content: center;
   align-items: center;
 `
+export const StyledBackGroundProfile = styled.View`
+  justify-content: center;
+  align-items: center;
+  position: relative;
+`
