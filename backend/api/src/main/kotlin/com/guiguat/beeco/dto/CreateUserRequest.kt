@@ -10,6 +10,7 @@ import javax.validation.constraints.Size
 class CreateUserRequest(
     @get:Size(min = 2, max = 20) var firstName: String,
     @get:Size(min = 2, max = 40) var lastName: String,
+    @get:Size(min = 1, max = 140) var description: String,
     @get:NotBlank
     @get:Email var email: String,
     @get:NotBlank var password: String,
@@ -31,6 +32,6 @@ class CreateUserRequest(
                 value = this@CreateUserRequest.password
             })}
     fun toUserInfo(): UserInfo =
-        UserInfo(null, firstName, lastName, email, photo, cellphone, phone, 0L, 0L)
+        UserInfo(null, firstName, lastName, description, email, photo, cellphone, phone, 0L, 0L)
 }
 
