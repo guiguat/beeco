@@ -20,4 +20,8 @@ class TaskService @Autowired constructor(private val repo: TaskRepository) {
     }
 
     fun create(request: TaskCreateRequest): Task = repo.save(request.toTask())
+
+    fun find(id: String) {
+        return repo.findById(id)
+    }
 }
