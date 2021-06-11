@@ -6,7 +6,7 @@ import { WarningText, FormFieldView } from './styles'
 
 interface Props extends TextInputProps {
   required?: boolean
-  errorMessage?: string
+  errorMessage?: string | null
   field: string
 }
 

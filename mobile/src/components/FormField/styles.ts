@@ -18,9 +18,9 @@ export const Input = styled.TextInput`
 `
 
 export const WarningText = styled.Text`
-  font-size: 8px;
-  line-height: 8px;
+  font-size: 12px;
+  line-height: 12px;
   font-family: 'Archivo_400Regular';
   color: ${(props) => props.theme.colors.warningRed};
-  margin-top: 4px;
+  margin-top: 8px;
 `
