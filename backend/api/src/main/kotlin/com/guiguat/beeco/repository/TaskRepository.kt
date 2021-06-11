@@ -4,10 +4,9 @@ import com.guiguat.beeco.model.Task
 import org.springframework.data.domain.*
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Repository
-import java.util.UUID
 
 @Repository
-interface TaskRepository: JpaRepository<Task, UUID> {
+interface TaskRepository: JpaRepository<Task, String> {
     fun findAllByNameOrDescriptionOrTagsContaining(
         name: String,
         description: String,
