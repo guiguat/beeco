@@ -16,20 +16,20 @@ class Task(
         @GeneratedValue(generator = "UUID")
         @GenericGenerator( name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
         @Column(name = "service_id") var id: UUID?,
+
+        @get:DecimalMin(value = "0.0", inclusive = false)
+        @get:Digits(integer=5, fraction=2)
+        @Column(name = "min_price", nullable = false) var minPrice: BigDecimal,
+
+        @get:DecimalMin(value = "0.0", inclusive = false)
+        @get:Digits(integer=5, fraction=2)
+        @Column(name = "max_price", nullable = false) var maxPrice: BigDecimal,
+
+        @Column(name = "freelancer_id", nullable = false) var freelancerId: String?,
+        @Column(name = "owner_id", updatable=false, nullable = false) var ownerId: String,
+
         var name: String,
         var description: String,
-        @get:DecimalMin(value = "0.0", inclusive = false)
-        @get:Digits(integer=5, fraction=2)
-        @Column(name = "min_price", nullable = false)
-        var minPrice: BigDecimal,
-        @get:DecimalMin(value = "0.0", inclusive = false)
-        @get:Digits(integer=5, fraction=2)
-        @Column(name = "max_price", nullable = false)
-        var maxPrice: BigDecimal,
-        var location: String,
-        var status: Int = 0,
-        @Column(name = "freelancer_id", nullable = false)
-        var freelancerId: UUID,
-        @Column(name = "owner_id", updatable=false, nullable = false)
-        var ownerId: UUID
+        var location: String?,
+        var status: Int = 0
 )

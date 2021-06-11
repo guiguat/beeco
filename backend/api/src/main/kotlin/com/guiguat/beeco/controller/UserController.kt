@@ -4,7 +4,6 @@ import com.guiguat.beeco.dto.CreateUserRequest
 import com.guiguat.beeco.dto.UpdateUserRequest
 import com.guiguat.beeco.model.UserInfo
 import com.guiguat.beeco.service.UserService
-import com.guiguat.beeco.utils.SecurityUtils.protected
 import com.guiguat.beeco.utils.SecurityUtils.withId
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
@@ -31,11 +30,9 @@ class UserController @Autowired constructor(private val service: UserService) {
     @PostMapping
     fun create(@Valid @RequestBody user: CreateUserRequest): ResponseEntity<Any> = service.create(user)
 
-    @PatchMapping("/{id}")
-    fun update(@Valid @RequestBody user: UpdateUserRequest,
-               @PathVariable id: String,): ResponseEntity<UserInfo> {
-        return protected(id){
+    @PatchMapping
+    fun update(@Valid @RequestBody user: UpdateUserRequest): ResponseEntity<UserInfo> =
+        withId {
             ok(service.update(user, it))
         }
-    }
 }

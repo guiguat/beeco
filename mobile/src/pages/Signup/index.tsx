@@ -28,6 +28,7 @@ const Signup: React.FC<ScreenProp> = () => {
   )
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
+  const [description, setDescription] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [cellphone, setCellphone] = useState('')
@@ -38,15 +39,20 @@ const Signup: React.FC<ScreenProp> = () => {
     setModalVisible(!modalVisible)
   }, [modalVisible])
   async function singUp() {
-    const data: any = {
+    let data: any = {
       firstName,
       lastName,
+      password,
       photo,
       email,
-      password,
+      description,
       cellphone,
+      phone,
     }
-    if (phone.length > 0) data.phone = phone
+    data = Object.keys(data)
+      .filter((k) => data[k]?.trim().length > 0)
+      .reduce((a, k) => ({ ...a, [k]: data[k] }), {})
+
     try {
       delete api.defaults.headers.common['Authorization']
       const res = await api.post('/users', data)
@@ -101,6 +107,17 @@ const Signup: React.FC<ScreenProp> = () => {
               errorMessage={errors.lastName}
             >
               <Input autoCompleteType="name" onChangeText={setLastName} />
+            </FormField>
+            <FormField
+              required
+              field="Sobre mim"
+              errorMessage={errors.description}
+            >
+              <Input
+                multiline={true}
+                maxLength={140}
+                onChangeText={setDescription}
+              />
             </FormField>
             <FormField required field="Email" errorMessage={errors.email}>
               <Input

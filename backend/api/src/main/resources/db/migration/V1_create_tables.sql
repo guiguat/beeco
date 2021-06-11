@@ -5,6 +5,7 @@ CREATE TABLE [IF NOT EXISTS] user_info(
 	user_id varchar,
 	first_name varchar(20) NOT NULL,
     last_name varchar(40) NOT NULL,
+    description varchar(140) NOT NULL,
 	email varchar NOT NULL,
 	photo varchar NOT NULL,
 	cellphone varchar(20) NOT NULL UNIQUE,
@@ -23,7 +24,7 @@ CREATE TABLE [IF NOT EXISTS] task(
 	location varchar(23),
 	status int NOT NULL,
 	freelancer_id varchar,
-	owner_id varchar REFERENCES user ON DELETE CASCADE,
+	owner_id varchar NOT NULL REFERENCES user ON DELETE CASCADE,
 	CONSTRAINT invalid_min_max_price CHECK( max_price > min_price),
 	PRIMARY KEY(service_id)
 );

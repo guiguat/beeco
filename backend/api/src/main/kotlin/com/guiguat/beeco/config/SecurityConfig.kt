@@ -14,15 +14,15 @@ class SecurityConfig: WebSecurityConfigurerAdapter() {
     val customAuthenticationManagerResolver = JwtIssuerAuthenticationManagerResolver(
         "http://localhost:8081/auth/realms/Beeco",
         "http://192.168.15.12:8081/auth/realms/Beeco")
-    //TODO: substituir seu ip local na url para usar o mobile
+    //TODO: substituir seu ip local na url para usar emulator do mobile
     override fun configure(http: HttpSecurity?) {
-        http!!{
-            csrf{ disable() }
+        http {
+            csrf { disable() }
             authorizeRequests {
                 authorize(HttpMethod.POST, "/users", permitAll)
                 authorize(anyRequest, authenticated)
             }
-            oauth2ResourceServer{
+            oauth2ResourceServer {
                 authenticationManagerResolver = customAuthenticationManagerResolver
             }
         }
