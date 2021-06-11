@@ -8,6 +8,7 @@ export type User = {
   cellphone: string
   email: string
   firstName: string
+  description: string
   id: string
   lastName: string
   phone: string | null
@@ -19,6 +20,7 @@ export type User = {
 type AuthContextType = {
   signed: boolean
   user: User | null
+  setUser: (u: User) => void
   signIn: (username: string, password: string) => Promise<void>
   signOut: () => Promise<void>
   loading: boolean
@@ -97,6 +99,7 @@ export const AuthProvider: React.FC = ({ children }) => {
       value={{
         signed: !!tokenInfo && !!user,
         user,
+        setUser,
         loading,
         signIn,
         signOut,

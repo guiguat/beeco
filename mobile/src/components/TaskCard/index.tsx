@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { TouchableOpacityProps } from 'react-native'
 import { BodyLight, SmallLight } from '../../styles/fonts'
 import { StyledTaskCard, Tag, RowDiv, RowDivTitle, Description } from './styles'
@@ -52,4 +52,4 @@ const TaskCard: React.FC<taskCardProps> = ({ children, info, ...props }) => {
     </StyledTaskCard>
   )
 }
-export default TaskCard
+export default memo(TaskCard)

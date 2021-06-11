@@ -22,7 +22,13 @@ const MetrixCard: React.FC<Props> = ({ children, type, ...props }) => {
     <Card {...props}>
       <MeasureUnit>
         <Feather name={iconName} size={16} color={theme.colors.darkerYellow} />
-        <StyledCaptionLight>Contratos</StyledCaptionLight>
+        <StyledCaptionLight>
+          {iconName === 'smile'
+            ? 'Contratos'
+            : iconName === 'star'
+            ? 'Estrelas'
+            : 'Tarefas'}
+        </StyledCaptionLight>
       </MeasureUnit>
       <StyledDisplayHeavy>{children}</StyledDisplayHeavy>
     </Card>

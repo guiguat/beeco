@@ -28,15 +28,6 @@ export const FormField = styled(DefaultFormField)`
   width: 100%;
 `
 
-export const InputProfilePhoto = styled.TouchableOpacity`
-  padding: 42px;
-  border-color: ${(props) => props.theme.colors.lightGrey};
-  border-width: 1px;
-  border-style: dashed;
-  border-radius: 55px;
-  margin-bottom: 18px;
-`
-
 export const StyledBackGroundImage = styled.ImageBackground`
   justify-content: center;
   align-items: center;
