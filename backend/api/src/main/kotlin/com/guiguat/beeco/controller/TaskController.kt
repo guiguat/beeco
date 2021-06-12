@@ -20,6 +20,12 @@ class TaskController @Autowired constructor(private val service: TaskService) {
 //        return if(user.isPresent) ok(user) else ResponseEntity.notFound().build()
 //    }
 
+    @GetMapping("/{id}")
+    fun index(@PathVariable id: String): ResponseEntity<Any> {
+        val user = service.find(id)
+        return if(user.isPresent) ok(user) else ResponseEntity.notFound().build()
+    }
+
     @PostMapping
     fun create(@Valid @RequestBody req: TaskCreateRequest): ResponseEntity<Task> = ok(service.create(req))
 

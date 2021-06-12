@@ -9,6 +9,7 @@ import org.springframework.data.domain.Page
 import org.springframework.data.domain.PageRequest
 import org.springframework.data.domain.Sort
 import org.springframework.stereotype.Service
+import java.util.*
 
 @Service
 class TaskService @Autowired constructor(private val repo: TaskRepository) {
@@ -20,4 +21,8 @@ class TaskService @Autowired constructor(private val repo: TaskRepository) {
     }
 
     fun create(request: TaskCreateRequest): Task = repo.save(request.toTask())
+
+    fun find(id: String): Optional<Task> {
+        return repo.findById(id)
+    }
 }
