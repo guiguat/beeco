@@ -14,13 +14,15 @@ import java.util.*
 @Service
 class TaskService @Autowired constructor(private val repo: TaskRepository) {
     fun search(request: TaskSearchRequest): Page<Task> {
-        val pageable = PageRequest.of(request.pageNumber, request.pageSize, Sort.by(request.direction, "minPrice"))
+        val pageable = PageRequest.of(request.pageNumber, request.pageSize,
+                                      Sort.by(request.direction, "minPrice"))
         return if(request.search != null)
-            repo.findAllByNameOrDescriptionOrTagsContaining(request.search, request.search, request.search, pageable)
+            repo.findAllByNameOrDescriptionOrTagsContainingIgnoreCaseAndFreelancerIdIsNull(
+                request.search!!, request.search!!, request.search!!, pageable)
         else repo.findAll(pageable)
     }
 
-    fun create(request: TaskCreateRequest): Task = repo.save(request.toTask())
+    fun create(request: TaskCreateRequest, oid: String): Task = repo.save(request.toTask(oid))
 
     fun find(id: String): Optional<Task> {
         return repo.findById(id)

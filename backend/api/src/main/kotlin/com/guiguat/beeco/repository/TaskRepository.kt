@@ -7,12 +7,11 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface TaskRepository: JpaRepository<Task, String> {
-    fun findAllByNameOrDescriptionOrTagsContaining(
+    fun findAllByNameOrDescriptionOrTagsContainingIgnoreCaseAndFreelancerIdIsNull(
         name: String,
         description: String,
         tags: String,
         pageable: Pageable,
     ): Page<Task>
-    fun findAllByFreelancerId(fid: String): List<Task>
-    fun findAllByOwnerId(fid: String): List<Task>
+    fun findAllByFreelancerIdOrOwnerId(fid: String, oid: String): List<Task>
 }

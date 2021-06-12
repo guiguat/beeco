@@ -15,7 +15,6 @@ class TaskCreateRequest (
     @get:Digits(integer=5, fraction=2)
     var maxPrice: BigDecimal,
     var freelancerId: String?,
-    var ownerId: String,
     @get:Size(min = 5, max = 40)
     var name: String,
     @get:Size(min = 5, max = 140)
@@ -23,7 +22,7 @@ class TaskCreateRequest (
     var location: String?,
     var tags: List<String>
 ){
-    fun toTask() = Task(UUID.randomUUID().toString(),
+    fun toTask(ownerId: String) = Task(UUID.randomUUID().toString(),
         minPrice, maxPrice, freelancerId, ownerId, name, description, location,
-        tags = tags.joinToString { s -> "$s;" }, status = 0)
+        tags = tags.joinToString { s -> s }, status = 0)
 }
