@@ -21,11 +21,11 @@ class TaskController @Autowired constructor(private val service: TaskService) {
              @RequestParam("page") page: Int,
              @RequestParam("size") size: Int,
              @RequestParam("dir") dir: Sort.Direction?): ResponseEntity<Any> {
-        val taskPageable = TaskSearchRequest(pageNumber = page, pageSize = size).apply {
+        val searchRequest = TaskSearchRequest(pageNumber = page, pageSize = size).apply {
             this.search = search ?: this.search
             direction = dir ?: this.direction
         }
-        return ok(service.search(taskPageable))
+        return ok(service.search(searchRequest))
     }
 
     @GetMapping("/{id}")
@@ -35,6 +35,7 @@ class TaskController @Autowired constructor(private val service: TaskService) {
     }
 
     @PostMapping
-    fun create(@Valid @RequestBody req: TaskCreateRequest): ResponseEntity<Task> = withId { ok(service.create(req, it)) }
+    fun create(@Valid @RequestBody req: TaskCreateRequest): ResponseEntity<Task> =
+        withId { ok(service.create(req, it)) }
 
 }

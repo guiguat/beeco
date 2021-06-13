@@ -9,7 +9,7 @@ spring:
   jpa:
     database: POSTGRESQL
     show-sql: true
-    hibernate.ddl-auto: create-drop
+    hibernate.ddl-auto: update
     database-platform: org.hibernate.dialect.PostgreSQL9Dialect
   security.oauth2.resourceserver.jwt:
     jwk-set-uri: "http://localhost:8081/auth/realms/Beeco/protocol/openid-connect/certs"

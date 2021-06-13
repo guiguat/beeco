@@ -1,6 +1,7 @@
 package com.guiguat.beeco.dto
 
 import com.guiguat.beeco.model.Task
+import com.guiguat.beeco.model.UserInfo
 import java.math.BigDecimal
 import java.util.*
 import javax.validation.constraints.DecimalMin
@@ -16,13 +17,14 @@ class TaskCreateRequest (
     var maxPrice: BigDecimal,
     var freelancerId: String?,
     @get:Size(min = 5, max = 40)
-    var name: String,
+    var title: String,
     @get:Size(min = 5, max = 140)
     var description: String,
     var location: String?,
     var tags: List<String>
 ){
-    fun toTask(ownerId: String) = Task(UUID.randomUUID().toString(),
-        minPrice, maxPrice, freelancerId, ownerId, name, description, location,
-        tags = tags.joinToString { s -> s }, status = 0)
+    fun toTask(owner: UserInfo) = Task(id = UUID.randomUUID().toString(), minPrice = minPrice,
+                                        maxPrice = maxPrice, owner = owner,
+                                        title = title, description = description, location = location,
+                                        tags = tags.joinToString { s -> s }, status = 0)
 }

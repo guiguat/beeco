@@ -5,13 +5,13 @@ import { createStackNavigator } from '@react-navigation/stack'
 import themes from './styles/theme'
 import Signup from './pages/Signup'
 import HomePage from './pages/HomePage'
-import Task from './pages/Task'
 import Login from './pages/Login'
 import Startup from './pages/Startup'
 import Profile from './pages/Profile'
 import EditProfile from './pages/EditProfile'
 import { ActivityIndicator } from 'react-native'
 import useAuth from './hooks/useAuth'
+import Task from './pages/Task'
 const Routes: React.FC = () => {
   const Stack = createStackNavigator()
   const { signed, loading } = useAuth()
