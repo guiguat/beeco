@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import NavigationHeader from '../../components/NavigationHeader'
 import MetrixCard from '../../components/MetrixCard'
 import {
@@ -19,12 +19,34 @@ import {
 } from './styles'
 import { ScreenProp } from '../../utils/navigation'
 import useAuth from '../../hooks/useAuth'
+import api from '../../services/api'
+import { User } from '../../contexts/authContext'
+
+type metricsRes = {
+  contracts: number
+  tasks: number
+}
 
 const Profile: React.FC<ScreenProp> = ({ route }) => {
   const ruser = route.params?.user
   const editable = !ruser
   const { user: me } = useAuth()
-  const user = ruser ?? me
+  const user: User = ruser ?? me
+  const [metrics, setMetrics] =
+    useState<(metricsRes & { stars: string }) | null>(null)
+
+  useEffect(() => {
+    api.get<metricsRes>(`/users/metrics/${user.id}`).then(({ data: m }) => {
+      setMetrics({
+        ...m,
+        stars:
+          user.ratingCount > 0
+            ? (user.ratingSum / user.ratingCount).toFixed(1)
+            : '0',
+      })
+    })
+  }, [user])
+
   return (
     <Container>
       <NavigationHeader isEdit={editable}>Perfil</NavigationHeader>
@@ -43,12 +65,12 @@ const Profile: React.FC<ScreenProp> = ({ route }) => {
       </PicNameNBio>
       <MetrixSection>
         <MetrixCard type="rating" style={{ marginRight: 10 }}>
-          {user?.ratingCount !== 0 ? user!.ratingSum / user!.ratingCount : 0}
+          {metrics?.stars ?? '...'}
         </MetrixCard>
         <MetrixCard type="tasks" style={{ marginRight: 10 }}>
-          300
+          {metrics?.stars ?? '...'}
         </MetrixCard>
-        <MetrixCard type="jobsDone">120</MetrixCard>
+        <MetrixCard type="jobsDone">{metrics?.contracts ?? '...'}</MetrixCard>
       </MetrixSection>
       <ContactSection>
         <HeadlineLight>Contato</HeadlineLight>

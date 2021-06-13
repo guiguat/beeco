@@ -14,5 +14,6 @@ interface TaskRepository: JpaRepository<Task, String> {
         tags: String,
         pageable: Pageable,
     ): Page<Task>
-    fun findAllByFreelancerOrOwner(freelancer: UserInfo, owner: UserInfo): List<Task>
+    fun findAllByOwnerAndFreelancerIsNotNull(owner: UserInfo): List<Task>
+    fun findAllByFreelancer(owner: UserInfo): List<Task>
 }

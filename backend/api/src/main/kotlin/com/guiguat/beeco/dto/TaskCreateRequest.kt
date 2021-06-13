@@ -18,7 +18,7 @@ class TaskCreateRequest (
     var freelancerId: String?,
     @get:Size(min = 5, max = 40)
     var title: String,
-    @get:Size(min = 5, max = 140)
+    @get:Size(min = 5, max = 240)
     var description: String,
     var location: String?,
     var tags: List<String>

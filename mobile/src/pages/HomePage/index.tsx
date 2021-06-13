@@ -1,5 +1,5 @@
-import React, { useCallback } from 'react'
-import { Image, TouchableOpacity, Text, RefreshControl } from 'react-native'
+import React from 'react'
+import { Image, TouchableOpacity, RefreshControl } from 'react-native'
 import {
   StyledView,
   Row,
@@ -12,7 +12,7 @@ import {
 import { HeadlineLight, CaptionLight, SmallLight } from '../../styles/fonts'
 import OrderByBtn from '../../components/OrderByBtn'
 import TaskCard, { Task } from '../../components/TaskCard'
-import { FlatList, ScrollView } from 'react-native-gesture-handler'
+import { ScrollView } from 'react-native-gesture-handler'
 import themes from '../../styles/theme'
 import { ScreenProp } from '../../utils/navigation'
 import useAuth from '../../hooks/useAuth'
@@ -31,23 +31,18 @@ type TaskPage = {
   numberOfElements: number
 }
 
-type Filter = { page: number; size: number; dir: 'DESC' | 'ASC' }
-
-const EmptyList: React.FC = () => <Text>Lista vazia</Text>
-
 const HomePage: React.FC<ScreenProp> = ({ navigation }) => {
   const { user } = useAuth()
   const [refreshing, setRefreshing] = React.useState(false)
   const [taskPage, setTaskPage] = useState<TaskPage | null>(null)
-  const [filter, setFilter] = useState<Filter>({
+  const filter = {
     page: 0,
-    size: 10,
+    size: 100,
     dir: 'DESC',
-  })
+  }
   const [search, setSearch] = useState('')
-  const fetchPage = () => {
-    console.log('12')
-    const params: any = { ...filter }
+  const fetchPage = (dir?: 'DESC' | 'ASC') => {
+    const params: any = { ...filter, dir: dir ?? filter.dir }
     if (search.trim().length > 0) params.s = search
     setRefreshing(true)
     return api.get<TaskPage>('/tasks', { params }).then((res) => {
@@ -62,6 +57,7 @@ const HomePage: React.FC<ScreenProp> = ({ navigation }) => {
 
   return (
     <ScrollView
+      contentContainerStyle={{ backgroundColor: themes.colors.white }}
       refreshControl={
         <RefreshControl
           refreshing={refreshing}
@@ -113,22 +109,20 @@ const HomePage: React.FC<ScreenProp> = ({ navigation }) => {
           placeholder={'Busque por tarefas'}
           onChangeText={setSearch}
           value={search}
-          onBlur={fetchPage}
+          onBlur={() => fetchPage()}
         />
         <Row style={{ marginTop: 0 }}>
           <CaptionLight>Ordenar por:</CaptionLight>
           <OrderByBtn
             onPress={() => {
-              setFilter((f) => ({ ...f, dir: 'ASC' }))
-              fetchPage()
+              fetchPage('ASC')
             }}
           >
             Menor preço
           </OrderByBtn>
           <OrderByBtn
             onPress={() => {
-              setFilter((f) => ({ ...f, dir: 'DESC' }))
-              fetchPage()
+              fetchPage('DESC')
             }}
           >
             Maior preço
