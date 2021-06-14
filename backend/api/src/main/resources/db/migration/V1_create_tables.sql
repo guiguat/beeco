@@ -1,8 +1,5 @@
-CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
-DROP TABLE user_info;
-DROP TABLE task;
 CREATE TABLE [IF NOT EXISTS] user_info(
-	user_id varchar,
+	user_id varchar NOT NULL,
 	first_name varchar(20) NOT NULL,
     last_name varchar(40) NOT NULL,
     description varchar(140) NOT NULL,
@@ -16,15 +13,16 @@ CREATE TABLE [IF NOT EXISTS] user_info(
 );
 
 CREATE TABLE [IF NOT EXISTS] task(
-	service_id uuid DEFAULT uuid_generate_v4 (),
-	name varchar(40) NOT NULL,
-	description varchar(500) NOT NULL,
-	min_price decimal CONSTRAINT non_negative_min_price CHECK (min_price >= 0) NOT NULL,
-	max_price decimal CONSTRAINT non_negative_max_price CHECK (max_price >= 0) NOT NULL,
+	task_id varchar NOT NULL,
+	title varchar(40) NOT NULL,
+	description varchar(240) NOT NULL,
+	min_price decimal NOT NULL,
+	max_price decimal NOT NULL,
 	location varchar(23),
+    tags varchar NOT NULL,
 	status int NOT NULL,
-	freelancer_id varchar,
-	owner_id varchar NOT NULL REFERENCES user ON DELETE CASCADE,
-	CONSTRAINT invalid_min_max_price CHECK( max_price > min_price),
+	freelancer_id varchar references user_info(user_id),
+	owner_id varchar NOT NULL references user_info(user_id),
+    created_at TIMESTAMP NOT NULL,
 	PRIMARY KEY(service_id)
 );

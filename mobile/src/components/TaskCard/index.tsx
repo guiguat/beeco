@@ -3,53 +3,61 @@ import { TouchableOpacityProps } from 'react-native'
 import { BodyLight, SmallLight } from '../../styles/fonts'
 import { StyledTaskCard, Tag, RowDiv, RowDivTitle, Description } from './styles'
 import themes from '../../styles/theme'
+import { User } from '../../contexts/authContext'
+import { useCallback } from 'react'
+import { formatDate } from '../../utils/format'
 
 interface taskCardProps extends TouchableOpacityProps {
-  info: taskCardInfo
+  task: Task
 }
 
-export interface taskCardInfo {
+export interface Task {
+  id: string
+  freelancer?: User
+  owner: User
+  status: number
   title: string
   minPrice: number
   maxPrice: number
-  date: string
-  city: string
+  createdAt: string
+  location: string
   description: string
-  tags: string[]
+  tags: string
 }
 
-const TaskCard: React.FC<taskCardProps> = ({ children, info, ...props }) => {
-  const { title, minPrice, maxPrice, date, city, description, tags } = info
+const TaskCard: React.FC<taskCardProps> = ({ children, task, ...props }) => {
   return (
     <StyledTaskCard {...props}>
       <RowDivTitle>
-        <BodyLight>{title}</BodyLight>
-        <SmallLight style={{ lineHeight: 20 }}>{date}</SmallLight>
+        <BodyLight>{task.title}</BodyLight>
+        <SmallLight style={{ lineHeight: 20 }}>
+          {formatDate(task.createdAt)}
+        </SmallLight>
       </RowDivTitle>
       <RowDiv style={{ marginBottom: 13, marginTop: 8 }}>
         <SmallLight style={{ marginRight: 16 }}>
-          R${minPrice} - R${maxPrice}
+          {task.minPrice === task.maxPrice
+            ? `R$${task.minPrice}`
+            : `R$${task.minPrice} - R$${task.maxPrice}`}
         </SmallLight>
-        <SmallLight>{city}</SmallLight>
+        <SmallLight>{task.location ?? 'Remoto'}</SmallLight>
       </RowDiv>
       <Description>
-        <SmallLight>{description}</SmallLight>
+        <SmallLight>{task.description}</SmallLight>
       </Description>
       <RowDiv>
-        {tags.map((value, index) =>
-          value ? (
-            <Tag key={index}>
-              <SmallLight
-                color={themes.colors.darkYellow}
-                style={{ lineHeight: 10.5 }}
-              >
-                {value}
-              </SmallLight>
-            </Tag>
-          ) : null
-        )}
+        {task.tags?.split(', ').map((tag, i) => (
+          <Tag key={i}>
+            <SmallLight
+              color={themes.colors.darkYellow}
+              style={{ lineHeight: 10.5 }}
+            >
+              {tag}
+            </SmallLight>
+          </Tag>
+        ))}
       </RowDiv>
     </StyledTaskCard>
   )
 }
-export default memo(TaskCard)
+export default TaskCard

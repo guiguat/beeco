@@ -47,7 +47,7 @@ export const ContactSection = styled.View`
 
 export const ContactInfo = styled.View`
   justify-content: space-between;
-  margin-left: 10px;
+  margin-left: 16px;
 `
 
 export const StyledImage = styled.Image`

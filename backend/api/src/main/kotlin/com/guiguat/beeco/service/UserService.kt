@@ -2,8 +2,10 @@ package com.guiguat.beeco.service
 
 import com.guiguat.beeco.dto.CreateUserRequest
 import com.guiguat.beeco.dto.UpdateUserRequest
+import com.guiguat.beeco.dto.UserMetrics
 import com.guiguat.beeco.exception.UserNotFoundException
 import com.guiguat.beeco.model.UserInfo
+import com.guiguat.beeco.repository.TaskRepository
 import com.guiguat.beeco.repository.UserInfoRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
@@ -15,6 +17,7 @@ import javax.ws.rs.core.Response
 
 @Service
 class UserService @Autowired constructor(private val repo: UserInfoRepository,
+                                         private val taskRepo: TaskRepository,
                                          private val keycloak: KeycloakUserService){
     private val statusCreated = 201
     fun create(userReq: CreateUserRequest): ResponseEntity<Any> {
@@ -44,5 +47,12 @@ class UserService @Autowired constructor(private val repo: UserInfoRepository,
 
     fun find(id: String): Optional<UserInfo> {
         return repo.findById(id)
+    }
+
+    fun getMetrics(id: String): UserMetrics {
+        val user = repo.getOne(id)
+        val contracts = taskRepo.findAllByOwnerAndFreelancerIsNotNull(user).count()
+        val tasks = taskRepo.findAllByFreelancer(user).count()
+        return UserMetrics(contracts, tasks)
     }
 }

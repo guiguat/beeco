@@ -40,56 +40,48 @@ export const AuthProvider: React.FC = ({ children }) => {
       .then((res) => (res ? JSON.parse(res) : null))
       .then((storedTInfo: TokenInfo | null) => {
         if (storedTInfo) {
-          setTokenInfo(storedTInfo)
-          updateAuth(storedTInfo.token_type, storedTInfo.access_token)
+          refreshSession(storedTInfo.refresh_token)
           createInterceptors()
         }
         setLoading(false)
       })
   }, [])
 
-  const signIn = useCallback(async (username: string, password: string) => {
+  const signIn = async (username: string, password: string) => {
     const { result, error } = await getToken(username, password)
     if (error || !result) {
       return Alert.alert(error)
     }
-    updateAuth(result!.token_type, result!.access_token)
+    updateAuth(result)
     await api
-      .get('/users/me')
+      .get<User>('/users/me')
       .then((res) => {
         setTokenInfo(result)
         setUser(res.data)
       })
       .catch(Alert.alert)
-  }, [])
+  }
 
-  const signOut = useCallback(async () => {
+  const signOut = async () => {
     setLoading(true)
     await AsyncStorage.removeItem('@tokenInfo')
     setTokenInfo(null)
     setLoading(false)
-  }, [])
+  }
 
-  const refreshSession = useCallback(async () => {
-    const { result, error } = await refreshToken(tokenInfo!.refresh_token)
-    if (error || !result) signOut()
-    updateAuth(result!.token_type, result!.access_token)
+  const refreshSession = async (token: string) => {
+    const { result, error } = await refreshToken(token)
+    if (error || !result) return await signOut()
+    updateAuth(result)
     setTokenInfo(result)
-  }, [tokenInfo])
+  }
 
   const createInterceptors = () => {
-    const interceptor = api.interceptors.response.use(
+    api.interceptors.response.use(
       (response) => response,
       async (error) => {
         const status = error.response ? error.response.status : null
         if (status !== 401) return Promise.reject(error)
-        const originalRequest = error.config
-        api.interceptors.response.eject(interceptor)
-        if (!originalRequest._retry) {
-          originalRequest._retry = true
-          await refreshSession()
-          return api(originalRequest)
-        }
         await signOut()
       }
     )

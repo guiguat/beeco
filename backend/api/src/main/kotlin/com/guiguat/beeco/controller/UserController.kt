@@ -35,4 +35,7 @@ class UserController @Autowired constructor(private val service: UserService) {
         withId {
             ok(service.update(user, it))
         }
+
+    @GetMapping("/metrics/{id}")
+    fun metrics(@PathVariable id: String) = ok(service.getMetrics(id))
 }

@@ -1,35 +1,28 @@
 package com.guiguat.beeco.model
 
-import org.hibernate.annotations.GenericGenerator
 import java.math.BigDecimal
-import java.util.*
-import javax.persistence.Column
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.Id
-import javax.validation.constraints.DecimalMin
-import javax.validation.constraints.Digits
+import java.time.LocalDateTime
+import javax.persistence.*
 
 @Entity
 class Task(
-        @Id
-        @GeneratedValue(generator = "UUID")
-        @GenericGenerator( name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-        @Column(name = "service_id") var id: UUID?,
-
-        @get:DecimalMin(value = "0.0", inclusive = false)
-        @get:Digits(integer=5, fraction=2)
-        @Column(name = "min_price", nullable = false) var minPrice: BigDecimal,
-
-        @get:DecimalMin(value = "0.0", inclusive = false)
-        @get:Digits(integer=5, fraction=2)
-        @Column(name = "max_price", nullable = false) var maxPrice: BigDecimal,
-
-        @Column(name = "freelancer_id", nullable = false) var freelancerId: String?,
-        @Column(name = "owner_id", updatable=false, nullable = false) var ownerId: String,
-
-        var name: String,
+        @Id @Column(name = "task_id")
+        var id: String,
+        @Column(name = "min_price")
+        var minPrice: BigDecimal,
+        @Column(name = "max_price")
+        var maxPrice: BigDecimal,
+        @Column(updatable = false, nullable = false)
+        var createdAt: LocalDateTime? = LocalDateTime.now(),
+        @ManyToOne
+        @JoinColumn(name = "freelancer_id")
+        var freelancer: UserInfo? = null,
+        @ManyToOne
+        @JoinColumn(name = "owner_id")
+        var owner: UserInfo,
+        var title: String,
         var description: String,
         var location: String?,
-        var status: Int = 0
+        var tags: String,
+        var status: Int? = 0,
 )
