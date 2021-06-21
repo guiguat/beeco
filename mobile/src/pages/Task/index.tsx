@@ -22,9 +22,20 @@ import { TouchableOpacity } from 'react-native'
 import { ScreenProp } from '../../utils/navigation'
 import { Task } from '../../components/TaskCard'
 import { formatDate } from '../../utils/format'
+import { Linking } from 'react-native'
+import { ToastAndroid } from 'react-native'
 
 const TaskPage: React.FC<ScreenProp> = ({ navigation, route }) => {
   const task: Task = route.params?.task ?? navigation.goBack()
+  const openWhatsapp = () => {
+    Linking.canOpenURL('whatsapp://send')
+    .then(can => can? 
+      Linking.openURL(`whatsapp://send?phone=+55${task.owner.cellphone}`) 
+      : ToastAndroid.showWithGravityAndOffset("É necessário baixar o WhatsApp", ToastAndroid.SHORT, ToastAndroid.BOTTOM, 0, 30))
+  }
+  const openDial = () => {
+    Linking.openURL(`tel:+55${task.owner.cellphone}`)
+  }
   return (
     <StyledScrollView showsVerticalScrollIndicator={false}>
       <HexBubble source={require('../../assets/img/hex_bubble.png')} />
@@ -92,10 +103,11 @@ const TaskPage: React.FC<ScreenProp> = ({ navigation, route }) => {
             borderColor: themes.colors.green,
             marginTop: 20,
           }}
+          onPress={openWhatsapp}
         >
           Ir para WhatsApp
         </Button>
-        <Button style={{ marginTop: 20, marginBottom: 40 }}>
+        <Button style={{ marginTop: 20, marginBottom: 40 }} onPress={openDial}>
           Ligar no telefone
         </Button>
       </ContactSection>

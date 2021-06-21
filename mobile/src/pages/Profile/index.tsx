@@ -41,7 +41,7 @@ const Profile: React.FC<ScreenProp> = ({ route }) => {
         ...m,
         stars:
           user.ratingCount > 0
-            ? (user.ratingSum / user.ratingCount).toFixed(1)
+            ? (user.ratingSum / user.ratingCount).toFixed(0)
             : '0',
       })
     })
@@ -68,7 +68,7 @@ const Profile: React.FC<ScreenProp> = ({ route }) => {
           {metrics?.stars ?? '...'}
         </MetrixCard>
         <MetrixCard type="tasks" style={{ marginRight: 10 }}>
-          {metrics?.stars ?? '...'}
+          {metrics?.tasks ?? '...'}
         </MetrixCard>
         <MetrixCard type="jobsDone">{metrics?.contracts ?? '...'}</MetrixCard>
       </MetrixSection>

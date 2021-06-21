@@ -8,6 +8,7 @@ import com.guiguat.beeco.model.UserInfo
 import com.guiguat.beeco.repository.TaskRepository
 import com.guiguat.beeco.repository.UserInfoRepository
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.data.repository.findByIdOrNull
 import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Service
 import java.lang.RuntimeException
@@ -54,5 +55,13 @@ class UserService @Autowired constructor(private val repo: UserInfoRepository,
         val contracts = taskRepo.findAllByOwnerAndFreelancerIsNotNull(user).count()
         val tasks = taskRepo.findAllByFreelancer(user).count()
         return UserMetrics(contracts, tasks)
+    }
+
+    fun rate(value: Int, uid: String): Unit {
+        val user = repo.findByIdOrNull(uid)?.apply {
+            ratingCount += 1
+            ratingSum += value
+        } ?: throw UserNotFoundException()
+        repo.save(user)
     }
 }
