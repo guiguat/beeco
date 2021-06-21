@@ -95,7 +95,7 @@ const HomePage: React.FC<ScreenProp> = ({ navigation }) => {
               >
                 <SmallLight>
                   {user?.ratingCount !== 0
-                    ? user!.ratingSum / user!.ratingCount
+                    ? (user!.ratingSum / user!.ratingCount).toFixed(0)
                     : 0}
                 </SmallLight>
               </StyledBackGroundImage>

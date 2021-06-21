@@ -21,6 +21,8 @@ import { ScreenProp } from '../../utils/navigation'
 import useAuth from '../../hooks/useAuth'
 import api from '../../services/api'
 import { User } from '../../contexts/authContext'
+import Button from '../../components/Button'
+import { Linking, ToastAndroid } from 'react-native'
 
 type metricsRes = {
   contracts: number
@@ -30,23 +32,30 @@ type metricsRes = {
 const Profile: React.FC<ScreenProp> = ({ route }) => {
   const ruser = route.params?.user
   const editable = !ruser
-  const { user: me } = useAuth()
+  const { user: me, setUser } = useAuth()
   const user: User = ruser ?? me
   const [metrics, setMetrics] =
     useState<(metricsRes & { stars: string }) | null>(null)
-
   useEffect(() => {
     api.get<metricsRes>(`/users/metrics/${user.id}`).then(({ data: m }) => {
-      setMetrics({
-        ...m,
-        stars:
-          user.ratingCount > 0
-            ? (user.ratingSum / user.ratingCount).toFixed(1)
-            : '0',
+      api.get<User>(`/users/${user.id}`).then(({data: u}) => {
+        setMetrics({
+          ...m,
+          stars:
+            user.ratingCount > 0
+              ? (user.ratingSum / user.ratingCount).toFixed(0)
+              : '0',
+        })
+        if(editable) setUser(u)
       })
     })
   }, [user])
-
+  const sendRating = () => {
+    Linking.canOpenURL('whatsapp://send')
+    .then(can => can? 
+      Linking.openURL('whatsapp://send?text='+encodeURIComponent(`Olá, gostou do meu trabalho? você pode avaliar usando este link: http://192.168.15.12:3000/rating/${user.id}`)) 
+      : ToastAndroid.showWithGravityAndOffset("É necessário baixar o WhatsApp", ToastAndroid.SHORT, ToastAndroid.BOTTOM, 0, 30))
+  }
   return (
     <Container>
       <NavigationHeader isEdit={editable}>Perfil</NavigationHeader>
@@ -68,7 +77,7 @@ const Profile: React.FC<ScreenProp> = ({ route }) => {
           {metrics?.stars ?? '...'}
         </MetrixCard>
         <MetrixCard type="tasks" style={{ marginRight: 10 }}>
-          {metrics?.stars ?? '...'}
+          {metrics?.tasks ?? '...'}
         </MetrixCard>
         <MetrixCard type="jobsDone">{metrics?.contracts ?? '...'}</MetrixCard>
       </MetrixSection>
@@ -102,6 +111,9 @@ const Profile: React.FC<ScreenProp> = ({ route }) => {
             <></>
           )}
         </Row>
+        {
+          editable? <Button style={{marginTop: 24}} onPress={sendRating}>Enviar link de avaliação</Button> : <></>
+        }
       </ContactSection>
     </Container>
   )
