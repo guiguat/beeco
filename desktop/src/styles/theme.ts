@@ -1,0 +1,40 @@
+const theme = {
+  borderRadius: '0.6rem',
+  padding: '2rem',
+  colors: {
+    yellow: '#FFE000',
+    white: '#fafafa',
+    lightYellow: '#FFE235',
+    darkYellow: '#CC9F02',
+    darkerYellow: '#AD8700',
+    black: '#221D1D',
+    lightBlue: '#06ABEC',
+    blue: '#337AB7',
+    lightGrey: '#6C6C6C',
+    lighterGrey: '#B7B7B7',
+    grey: '#3c3c3c',
+    lightest: '#FFFFFF',
+    darkGrey: '#1e2021',
+    warningRed: '#FF3232',
+    lightOrange: '#FFE9A9',
+    lighterYellow: '#FFF2CB',
+    green: '#BCF285',
+    lightBrown: '#FFF2CB',
+  },
+  elevation: {
+    yellow: '0rem 1.5rem 7.0rem -1rem rgba(255, 224, 0, 0.59)',
+  },
+  fonts: {
+    fontsize: '62.5%',
+    displayHeavy: 'normal normal bold 3.6rem/4.8rem Saira',
+    headlineLight: 'normal normal 400 2.4rem/3.2rem Saira',
+    titleHeavy: 'normal normal bold 2rem/2.8rem Saira',
+    titleLight: 'normal normal 400 2rem/2.8rem Saira',
+    subheaderLight: 'normal normal 400 1.6rem/2.4rem Archivo',
+    subheaderHeavy: 'normal normal 600 1.6rem/2.4rem Archivo',
+    bodyLight: 'normal normal 400 1.4rem/2rem Archivo',
+    captionLight: 'normal normal 400 1.2rem/1.6rem Archivo',
+  },
+};
+export type MyTheme = typeof theme;
+export default theme;
