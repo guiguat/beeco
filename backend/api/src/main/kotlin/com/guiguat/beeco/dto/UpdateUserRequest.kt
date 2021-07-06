@@ -8,7 +8,7 @@ class UpdateUserRequest(
     @get:Size(min = 2, max = 20) var firstName: String?,
     @get:Size(min = 2, max = 40) var lastName: String?,
     @get:Size(min = 1, max = 140) var description: String?,
-    @get:Size(min = 5) @get:Email var email: String?,
+    @get:[Size(min = 5) Email] var email: String?,
     var photo: String?,
     @get:Size(min = 5, max = 20) var cellphone: String?,
     @get:Size(min = 5, max = 20) var phone: String?,

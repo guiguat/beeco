@@ -21,7 +21,6 @@ class SecurityConfig: WebSecurityConfigurerAdapter() {
             authorizeRequests {
                 authorize(HttpMethod.POST, "/users", permitAll)
                 authorize(HttpMethod.PATCH, "/users/rating/*", permitAll)
-                //authorize(HttpMethod.GET, "/users/me", authenticated)
                 authorize(HttpMethod.GET, "/users/*", permitAll)
                 authorize(anyRequest, authenticated)
             }

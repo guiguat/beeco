@@ -6,7 +6,7 @@ import javax.persistence.*
 
 @Entity
 class Task(
-        @Id @Column(name = "task_id")
+        @[Id Column(name = "task_id")]
         var id: String,
         @Column(name = "min_price")
         var minPrice: BigDecimal,
@@ -14,11 +14,9 @@ class Task(
         var maxPrice: BigDecimal,
         @Column(updatable = false, nullable = false)
         var createdAt: LocalDateTime? = LocalDateTime.now(),
-        @ManyToOne
-        @JoinColumn(name = "freelancer_id")
+        @[ManyToOne JoinColumn(name = "freelancer_id")]
         var freelancer: UserInfo? = null,
-        @ManyToOne
-        @JoinColumn(name = "owner_id")
+        @[ManyToOne JoinColumn(name = "owner_id")]
         var owner: UserInfo,
         var title: String,
         var description: String,

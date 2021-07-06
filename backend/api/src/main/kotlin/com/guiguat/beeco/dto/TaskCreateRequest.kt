@@ -9,11 +9,9 @@ import javax.validation.constraints.Digits
 import javax.validation.constraints.Size
 
 class TaskCreateRequest (
-    @get:DecimalMin(value = "0.0", inclusive = false)
-    @get:Digits(integer=5, fraction=2)
+    @get:[DecimalMin(value = "0.0", inclusive = false) Digits(integer=5, fraction=2)]
     var minPrice: BigDecimal,
-    @get:DecimalMin(value = "0.0", inclusive = false)
-    @get:Digits(integer=5, fraction=2)
+    @get:[DecimalMin(value = "0.0", inclusive = false) Digits(integer=5, fraction=2)]
     var maxPrice: BigDecimal,
     var freelancerId: String?,
     @get:Size(min = 5, max = 40)
