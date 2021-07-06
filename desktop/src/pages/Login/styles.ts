@@ -2,11 +2,9 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  display: grid;
-  grid-template-columns: 3fr 2fr;
+  display: flex;
   height: 100vh;
   @media (max-width: 800px) {
-    display: flex;
     & > .bees {
       display: none;
     }
@@ -19,10 +17,13 @@ export const BeeBG = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   transform: scaleX(-1);
+  width: 100%;
 `;
 export const LoginContainer = styled.div`
   position: relative;
-  max-width: 48rem;
+  @media (min-width: 801px) {
+    max-width: 48rem;
+  }
   width: 100%;
   padding: 2.4rem;
   display: flex;
