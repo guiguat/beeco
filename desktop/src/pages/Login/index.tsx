@@ -17,9 +17,9 @@ const Login: React.FC = () => {
           <DisplayHeavy>LOGIN</DisplayHeavy>
         </S.Header>
         <S.Form onSubmit={(e) => e.preventDefault()}>
-          <FormField label="Email" required />
+          <FormField label="Email" required type="email" />
           <FormField label="Senha" required type="password" />
-          <Button>Entrar</Button>
+          <Button elevated>Entrar</Button>
         </S.Form>
       </S.LoginContainer>
     </S.Container>

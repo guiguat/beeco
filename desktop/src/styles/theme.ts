@@ -22,7 +22,7 @@ const theme = {
     lightBrown: '#FFF2CB',
   },
   elevation: {
-    yellow: '0rem 1.5rem 7.0rem -1rem rgba(255, 224, 0, 0.59)',
+    yellow: '0 2rem 3.0rem -1.7rem rgba(255, 224, 0, 0.59)',
   },
   fonts: {
     fontsize: '62.5%',

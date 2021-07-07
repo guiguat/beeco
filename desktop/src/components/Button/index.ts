@@ -1,14 +1,15 @@
 /* eslint-disable import/prefer-default-export */
 import styled from 'styled-components';
 
-const Button = styled.button<{ padding?: string }>`
+const Button = styled.button<{ padding?: string; elevated?: boolean }>`
   border-radius: ${(props) => props.theme.borderRadius};
   width: 100%;
   border: 1px solid ${(props) => props.theme.colors.lighterGrey};
   padding: ${(props) => props.padding ?? '1.4rem'};
   font: ${(props) => props.theme.fonts.subheaderHeavy};
   background-color: ${(props) => props.theme.colors.yellow};
-  box-shadow: ${(props) => props.theme.elevation.yellow};
+  box-shadow: ${(props) =>
+    props.elevated ? props.theme.elevation.yellow : 'none'};
   display: flex;
   align-items: center;
   justify-content: center;
