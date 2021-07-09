@@ -8,9 +8,9 @@ body, *{
   box-sizing: border-box;
 }
 
-body {
+body, #root {
   position: relative;
-  height: 100%;
+  height: 100vh;
   background: ${(props) => props.theme.colors.white};
   font-size: ${(props) => props.theme.fonts.fontsize};
 }

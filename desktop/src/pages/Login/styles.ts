@@ -30,7 +30,6 @@ export const LoginContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  overflow-x: hidden;
 `;
 export const Bubbles = styled.img`
   position: absolute;

@@ -1,7 +1,6 @@
 import React from 'react';
-
 import * as S from './styles';
-import { DisplayHeavy, SubheaderLight, TitleLight } from '../../styles/fonts';
+import { DisplayHeavy, TitleLight } from '../../styles/fonts';
 import FormField from '../../components/FormField';
 import Button from '../../components/Button';
 
@@ -16,10 +15,16 @@ const Login: React.FC = () => {
           <TitleLight>Faça seu</TitleLight>
           <DisplayHeavy>LOGIN</DisplayHeavy>
         </S.Header>
-        <S.Form onSubmit={(e) => e.preventDefault()}>
+        <S.Form
+          onSubmit={(e) => {
+            e.preventDefault();
+          }}
+        >
           <FormField label="Email" required type="email" />
           <FormField label="Senha" required type="password" />
-          <Button elevated>Entrar</Button>
+          <Button elevated type="submit">
+            Entrar
+          </Button>
         </S.Form>
       </S.LoginContainer>
     </S.Container>
