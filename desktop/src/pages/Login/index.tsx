@@ -22,7 +22,7 @@ const Login: React.FC = () => {
         >
           <FormField label="Email" required type="email" />
           <FormField label="Senha" required type="password" />
-          <Button elevated type="submit">
+          <Button elevated type="submit" expanded>
             Entrar
           </Button>
         </S.Form>

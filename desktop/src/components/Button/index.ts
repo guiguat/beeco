@@ -1,9 +1,13 @@
 /* eslint-disable import/prefer-default-export */
 import styled from 'styled-components';
 
-const Button = styled.button<{ padding?: string; elevated?: boolean }>`
+const Button = styled.button<{
+  padding?: string;
+  elevated?: boolean;
+  expanded?: boolean;
+}>`
   border-radius: ${(props) => props.theme.borderRadius};
-  width: 100%;
+  ${(props) => (props.expanded ? 'width: 100%;' : '')}
   border: 1px solid ${(props) => props.theme.colors.lighterGrey};
   padding: ${(props) => props.padding ?? '1.4rem'};
   font: ${(props) => props.theme.fonts.subheaderHeavy};

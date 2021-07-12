@@ -23,6 +23,7 @@ const theme = {
   },
   elevation: {
     yellow: '0 2rem 3.0rem -1.7rem rgba(255, 224, 0, 0.59)',
+    el4: '0px 16px 24px rgba(0, 0, 0, 0.12);',
   },
   fonts: {
     fontsize: '62.5%',

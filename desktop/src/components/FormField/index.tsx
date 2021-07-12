@@ -11,9 +11,10 @@ interface FormFieldProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
   required?: boolean;
   error?: string;
+  area?: boolean;
 }
 
-const FormField: React.FC<FormFieldProps> = ({ label, ...props }) => {
+const FormField: React.FC<FormFieldProps> = ({ label, area, ...props }) => {
   return (
     <S.Container>
       <S.Label>
@@ -26,7 +27,11 @@ const FormField: React.FC<FormFieldProps> = ({ label, ...props }) => {
           <></>
         )}
       </S.Label>
-      <S.Input type={props.type ?? 'text'} {...props} />
+      {area ? (
+        <S.Area {...(props as any)} />
+      ) : (
+        <S.Input type={props.type ?? 'text'} {...props} />
+      )}
     </S.Container>
   );
 };
